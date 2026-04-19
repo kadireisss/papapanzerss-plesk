@@ -3,14 +3,50 @@ declare(strict_types=1);
 
 /**
  * PANZER panel markası — designedbybossxxlife
- * $GLOBALS['PANZER_ASSET_BASE'] ile önek (ör. alt dizin): boş = BellaMain kökü.
+ *
+ * $GLOBALS['PANZER_ASSET_BASE'] — isteğe bağlı kök (ör. "BellaMain" veya "/BellaMain").
+ * Boş bırakılırsa SCRIPT_NAME üzerinden otomatik: /BellaMain/dashboard.php → /BellaMain/
+ * Böylece temiz URL (/BellaMain/dashboard) veya trailing slash ile kırılmaz.
  */
+function panzer_brand_asset_dir(): string
+{
+    if (array_key_exists('PANZER_ASSET_BASE', $GLOBALS) && $GLOBALS['PANZER_ASSET_BASE'] !== null && $GLOBALS['PANZER_ASSET_BASE'] !== '') {
+        $g = trim(str_replace('\\', '/', (string) $GLOBALS['PANZER_ASSET_BASE']), '/');
+        if ($g === '') {
+            return '';
+        }
+
+        return '/' . $g;
+    }
+    $sn = str_replace('\\', '/', (string) ($_SERVER['SCRIPT_NAME'] ?? ''));
+    if ($sn === '') {
+        return '';
+    }
+    if (!str_ends_with(strtolower($sn), '.php')) {
+        return '';
+    }
+    $dir = dirname($sn);
+    if ($dir === '/' || $dir === '.' || $dir === '\\' || $dir === '') {
+        return '';
+    }
+
+    return rtrim($dir, '/');
+}
+
 function panzer_brand_asset_base(): string
 {
-    if (!empty($GLOBALS['PANZER_ASSET_BASE'])) {
-        return rtrim((string) $GLOBALS['PANZER_ASSET_BASE'], '/') . '/';
-    }
-    return '';
+    $d = panzer_brand_asset_dir();
+
+    return $d === '' ? '' : $d . '/';
+}
+
+/** BellaMain web köküne göre href/src (ör. assets/css/foo.css) */
+function panzer_brand_public_path(string $path): string
+{
+    $path = ltrim(str_replace('\\', '/', $path), '/');
+    $b = panzer_brand_asset_base();
+
+    return $b === '' ? $path : $b . $path;
 }
 
 function panzer_brand_h(string $s): string
@@ -20,15 +56,13 @@ function panzer_brand_h(string $s): string
 
 function panzer_brand_head_link(): void
 {
-    $b = panzer_brand_asset_base();
-    echo '<link href="' . panzer_brand_h($b . 'assets/css/panzer-brand.css') . '" rel="stylesheet" type="text/css"/>' . "\n";
+    echo '<link href="' . panzer_brand_h(panzer_brand_public_path('assets/css/panzer-brand.css')) . '" rel="stylesheet" type="text/css"/>' . "\n";
 }
 
 /** Sabit alt şerit (giriş, kayıt, 404, açılış sayfası) */
 function panzer_brand_fixed_bar(): void
 {
-    $b = panzer_brand_asset_base();
-    $img = panzer_brand_h($b . 'assets/media/panzer-mark.png');
+    $img = panzer_brand_h(panzer_brand_public_path('assets/media/panzer-mark.png'));
     ?>
 <div class="panzer-brand-bar" role="contentinfo" aria-label="PANZER marka">
   <div class="panzer-brand-bar__inner">
@@ -44,8 +78,7 @@ function panzer_brand_fixed_bar(): void
 /** Dashboard / tema içi footer satırı */
 function panzer_brand_dashboard_footer_html(): string
 {
-    $b = panzer_brand_asset_base();
-    $img = panzer_brand_h($b . 'assets/media/panzer-mark.png');
+    $img = panzer_brand_h(panzer_brand_public_path('assets/media/panzer-mark.png'));
     return '<div class="panzer-dashboard-footer d-flex flex-wrap align-items-center gap-3 py-1">'
         . '<img src="' . $img . '" alt="" class="panzer-dashboard-footer__logo panzer-dragon panzer-dragon--pulse" width="36" height="36" loading="lazy" decoding="async">'
         . '<div class="d-flex flex-column">'
@@ -61,7 +94,7 @@ function panzer_brand_dashboard_footer_html(): string
 /** Ejder mark URL'i (favicon, logo, watermark — hepsi aynı dosyayı kullanır) */
 function panzer_brand_dragon_url(): string
 {
-    return panzer_brand_asset_base() . 'assets/media/panzer-mark.png';
+    return panzer_brand_public_path('assets/media/panzer-mark.png');
 }
 
 /** Favicon linki — head içine basın. */

@@ -30,12 +30,13 @@ $pzrEsc = static fn($v) => htmlspecialchars((string)($v ?? ''), ENT_QUOTES, 'UTF
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="assets/css/plugins.bundle.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/plugins.bundle.css')); ?>" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/style.bundle.css')); ?>" rel="stylesheet" type="text/css">
   <?php panzer_brand_head_link(); ?>
-  <link href="assets/css/pzr-auth.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-auth.css')); ?>" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script>window.jQuery||document.write('<script src="https://code.jquery.com/jquery-3.6.4.min.js"><\/script>');</script>
 </head>
 <body id="kt_body" class="pzr-auth panzer-branded-page">
 
@@ -133,13 +134,13 @@ $pzrEsc = static fn($v) => htmlspecialchars((string)($v ?? ''), ENT_QUOTES, 'UTF
 
   </div>
 
-  <script>var hostUrl = "assets/";</script>
+  <script>var hostUrl = "<?php echo $pzrEsc(panzer_brand_public_path('assets/')); ?>";</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/popular@2.4.0/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/plugin-bootstrap5@2.4.0/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/plugin-trigger@2.4.0/index.min.js"></script>
-  <script src="assets/js/scripts.bundle.js"></script>
+  <script src="<?php echo $pzrEsc(panzer_brand_public_path('assets/js/scripts.bundle.js')); ?>"></script>
   <script>
     (function () {
       function bind(pwdId, btnId) {

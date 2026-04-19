@@ -5,7 +5,7 @@ $pzrEsc = static fn($v) => htmlspecialchars((string)($v ?? ''), ENT_QUOTES, 'UTF
 <!DOCTYPE html>
 <html lang="tr" data-bs-theme="dark">
 <head>
-  <base href="/BellaMain/">
+  <base href="<?php echo $pzrEsc(panzer_brand_asset_base() === '' ? '/' : panzer_brand_asset_base()); ?>">
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@ $pzrEsc = static fn($v) => htmlspecialchars((string)($v ?? ''), ENT_QUOTES, 'UTF
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="assets/css/pzr-auth.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-auth.css')); ?>" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="pzr-auth panzer-branded-page">
