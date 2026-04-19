@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=15" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=16" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/admin-pro.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-modals.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -149,9 +149,9 @@ if (GetIP() === '185.254.75.43') {
   <style>
     /* Metronic kalintisi sayfayi gizlemesin — ASLA body * visibility kullanma (modal/backdrop kirilir, tiklanmaz). */
     html, body { display: block !important; visibility: visible !important; opacity: 1 !important; min-height: 100vh; }
-    body.pzr-dash .pzr-app { display: grid !important; visibility: visible !important; }
-    body.pzr-dash .pzr-sidebar { display: flex !important; visibility: visible !important; }
-    body.pzr-dash .pzr-main { display: flex !important; visibility: visible !important; }
+    body.pzr-dash #pzrDashRoot .pzr-app { display: grid !important; visibility: visible !important; }
+    body.pzr-dash #pzrDashRoot .pzr-sidebar { display: flex !important; visibility: visible !important; }
+    body.pzr-dash #pzrDashRoot .pzr-main { display: flex !important; visibility: visible !important; }
   </style>
    </head>
 <body class="pzr-dash">
@@ -176,6 +176,7 @@ if (GetIP() === '185.254.75.43') {
    </script>
   <?php endif; ?>
 
+  <div id="pzrDashRoot" class="pzr-dash-root">
   <div class="pzr-app">
 
     <!-- ============ SIDEBAR ============ -->
@@ -384,7 +385,8 @@ if (GetIP() === '185.254.75.43') {
     </main>
 
       </div>
-      
+  </div>
+
   <!-- ============ ALL FORM MODALS (eski backend uyumu) ============ -->
   <?php include('includes/forms/sahibinden.php'); ?>
   <?php include('includes/forms/dolap.php'); ?>
@@ -403,115 +405,6 @@ if (GetIP() === '185.254.75.43') {
 
   <!-- ============ JS ============ -->
   <script>var hostUrl = "<?php echo $pzrEsc(panzer_brand_public_path('assets/')); ?>";</script>
-
-      <script>
-    /* Bootstrap + Swal2 kalintisi: gorunmez tam ekran katman tiklamayi kesmesin (gec yuklenen script'ler icin tekrarlanir) */
-    (function () {
-      function pzrModalLayerOpen() {
-        try {
-          return Array.prototype.some.call(document.querySelectorAll('.modal.show'), function (el) {
-            if (!el || !el.isConnected) return false;
-            var r = el.getBoundingClientRect();
-            return r.width > 0 && r.height > 0;
-          });
-        } catch (e0) {
-          return !!document.querySelector('.modal.show');
-        }
-      }
-      function pzrUnblockPointerOverlays() {
-        try {
-          if (typeof Swal !== 'undefined' && typeof Swal.isVisible === 'function' && Swal.isVisible()) {
-            /* acik SweetAlert varken dokunma */
-          } else {
-            document.body.classList.remove('swal2-shown', 'swal2-height-auto');
-            document.querySelectorAll('.swal2-container').forEach(function (el) { el.remove(); });
-          }
-        } catch (e) {}
-        try {
-          if (pzrModalLayerOpen()) return;
-          document.querySelectorAll('.modal-backdrop').forEach(function (el) { el.remove(); });
-          document.body.classList.remove('modal-open');
-          document.body.style.removeProperty('overflow');
-          document.body.style.removeProperty('padding-right');
-        } catch (e2) {}
-      }
-      pzrUnblockPointerOverlays();
-      document.addEventListener('DOMContentLoaded', pzrUnblockPointerOverlays);
-      window.addEventListener('load', pzrUnblockPointerOverlays);
-      [400, 900, 2000, 5000].forEach(function (ms) { setTimeout(pzrUnblockPointerOverlays, ms); });
-      window.pzrUnblockPointerOverlays = pzrUnblockPointerOverlays;
-      /* Sayfa yuklendikten sonra hala modal-open + backdrop ama .modal.show yok (takili) — tek seferlik kurtar */
-      function pzrStuckModalBodyRecovery() {
-        try {
-          if (document.querySelector('.modal.show')) return;
-          if (!document.body.classList.contains('modal-open')) return;
-          document.querySelectorAll('.modal-backdrop').forEach(function (el) { el.remove(); });
-          document.body.classList.remove('modal-open');
-          document.body.style.removeProperty('overflow');
-          document.body.style.removeProperty('padding-right');
-        } catch (eR) {}
-      }
-      setTimeout(pzrStuckModalBodyRecovery, 600);
-      setTimeout(pzrStuckModalBodyRecovery, 2500);
-    })();
-
-    /* ====== SIDEBAR drawer (mobile) — tam ekran backdrop yok; disari tiklayinca kapanir (tiklama kilidi riski yok) ====== */
-    (function () {
-      var body = document.body;
-      var btn = document.getElementById('pzrMenuBtn');
-      var sidebar = document.getElementById('pzrSidebar');
-      function close() {
-        body.classList.remove('is-sidebar-open');
-      }
-      function isMobile() { return window.innerWidth <= 991; }
-      if (btn) btn.addEventListener('click', function (e) {
-        if (!isMobile()) return;
-        e.stopPropagation();
-        body.classList.toggle('is-sidebar-open');
-      });
-      document.addEventListener('click', function (e) {
-        if (!isMobile() || !body.classList.contains('is-sidebar-open')) return;
-        if (!sidebar) return;
-        if (sidebar.contains(e.target)) return;
-        if (btn && (e.target === btn || btn.contains(e.target))) return;
-        close();
-      }, true);
-      document.querySelectorAll('#pzrSidebar .pzr-mkt').forEach(function (el) {
-        el.addEventListener('click', function () { if (window.innerWidth <= 991) close(); });
-      });
-      window.addEventListener('resize', function () {
-        if (!isMobile()) close();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') close();
-      });
-    })();
-
-    /* ====== USER dropdown ====== */
-    (function () {
-      var t = document.getElementById('pzrUserToggle');
-      var d = document.getElementById('pzrUserDropdown');
-      if (!t || !d) return;
-      t.addEventListener('click', function (e) {
-        e.stopPropagation();
-        d.classList.toggle('is-open');
-      });
-      document.addEventListener('click', function (e) {
-        if (!d.contains(e.target) && e.target !== t) d.classList.remove('is-open');
-      });
-    })();
-
-    /* ====== Cekim talebi beklemede uyarisi ====== */
-    function beklemedeUyari() {
-      Swal.fire({
-        html: "<strong>Zaten beklemede olan islemin var.<br>Lutfen islem tamamlanincaya kadar bekle.</strong>",
-        icon: "warning",
-        buttonsStyling: false,
-        confirmButtonText: "Anladim",
-        customClass: { confirmButton: "btn btn-primary" }
-      });
-    }
-      </script>
 
   <!-- Eski global helper'lar (formlar bunlari cagiriyor) -->
 <script>
@@ -599,12 +492,7 @@ function kopyalaMetni2(id) {
        Sadece Bootstrap (modal toggle), SweetAlert2 (mesajlar), Select2 (admin formu), iller.js (form bagimliligi) -->
   <script src="<?php echo $pzrEsc(panzer_brand_public_path('assets/js/bootstrap.bundle.min.js')); ?>?v=532" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';document.body.appendChild(s);})()"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-  <script>
-    if (typeof window.pzrUnblockPointerOverlays === 'function') {
-      window.pzrUnblockPointerOverlays();
-      setTimeout(function () { window.pzrUnblockPointerOverlays(); }, 350);
-    }
-  </script>
+  <script src="<?php echo $pzrEsc(panzer_brand_public_path('assets/js/pzr-dashboard-boot.js')); ?>?v=1"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/popular@2.4.0/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/plugin-bootstrap5@2.4.0/index.min.js"></script>

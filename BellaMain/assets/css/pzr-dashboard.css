@@ -72,22 +72,29 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   display: inline-flex !important;
 }
 
-/* ==================== ROOT LAYOUT ==================== */
-/* Ana icerik ustunde; mobil drawer icin tam ekran backdrop kullanilmiyor (tiklama kilidi onlemi). */
-.pzr-app {
+/* ==================== INTERAKTIF KABUK (modallar bu div disinda) ==================== */
+body.pzr-dash #pzrDashRoot {
   position: relative;
-  z-index: 110;
+  z-index: 19000;
+  isolation: isolate;
+  pointer-events: auto;
+}
+
+body.pzr-dash #pzrDashRoot .pzr-app {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: var(--pzr-sidebar-w) 1fr;
   min-height: 100vh;
 }
 
 @media (max-width: 991px) {
-  .pzr-app { grid-template-columns: 1fr; }
+  body.pzr-dash #pzrDashRoot .pzr-app {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Ana icerik: olasi sidebar/modal sizmasinda tiklar buraya insin */
-body.pzr-dash .pzr-main {
+body.pzr-dash #pzrDashRoot .pzr-main {
   position: relative;
   z-index: 5;
 }
@@ -1025,9 +1032,9 @@ body.pzr-dash .pzr-main {
   .pzr-footer { padding: 0.85rem 1rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
 
-/* SweetAlert2 — her zaman tiklanabilir ve en ustte (backdrop/legacy overlay ustunden) */
+/* SweetAlert2 — her zaman en ustte */
 body.pzr-dash .swal2-container {
-  z-index: 20050 !important;
+  z-index: 300000 !important;
 }
 
 /* Swal animasyon sonu / hata: konteyner acik gorunup tiklamayi kesmesin */
@@ -1045,6 +1052,7 @@ body.pzr-dash .modal:not(.show) {
 body.pzr-dash .modal.show {
   display: block !important;
   pointer-events: none !important;
+  z-index: 21000 !important;
 }
 
 body.pzr-dash .modal.show .modal-dialog {
@@ -1057,6 +1065,7 @@ body.pzr-dash .modal.show .modal-dialog {
  */
 body.pzr-dash .modal-backdrop {
   pointer-events: none !important;
+  z-index: 20500 !important;
 }
 
 body.pzr-dash:has(.modal.show) .modal-backdrop {
