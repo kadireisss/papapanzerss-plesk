@@ -467,6 +467,14 @@ CREATE TABLE `panel` (
   `dom_shopier` varchar(100) NOT NULL,
   `dom_yurtici` varchar(100) NOT NULL,
   `dom_facebook` varchar(100) NOT NULL,
+  `dom_trendyol` varchar(100) NOT NULL,
+  `dom_hepsiburada` varchar(100) NOT NULL,
+  `dom_migros` varchar(100) NOT NULL,
+  `dom_pasaj` varchar(100) NOT NULL,
+  `dom_ptt3` varchar(100) NOT NULL,
+  `dom_bim` varchar(100) NOT NULL,
+  `dom_a101` varchar(100) NOT NULL,
+  `dom_pttkargo` varchar(100) NOT NULL,
   `iban` varchar(50) NOT NULL,
   `ibanad` varchar(50) NOT NULL,
   `banka` varchar(50) NOT NULL,
@@ -488,7 +496,7 @@ CREATE TABLE `panel` (
 
 LOCK TABLES `panel` WRITE;
 /*!40000 ALTER TABLE `panel` DISABLE KEYS */;
-INSERT INTO `panel` VALUES (1,'kingbella.pro','sahibinden.sepette-odeme.com.tr','dolap.sepette-odeme.com.tr','letgo.sepette-odeme.com.tr','pttalisveris.sepette-odeme.com.tr','turkcellpasaj.sepette-odeme.com.tr','shopier.sepette-odeme.com.tr','kargotakip.sepette-odeme.com.tr','','TR77 0004 6000 9988 8000 3621 13','Tayfun Demiroğlu','Akbank','6417260869:AAEOYlnKDYZf5Z492QNP0ryQrCJEHSRZGbs','-1002128579516','6496260661:AAFWItcQBihX4ohnZmF6DdrUtnr1TXwsDQE','-4155417995','6396994586:AAFJAynpzLuzBhWUEUARIXCcs-m8gi22R5I','-1002016397228','6974374370:AAFcQYi4KJ_jUXj4luxEkZN4vnS9wHAbBCM','-4181599671');
+INSERT INTO `panel` VALUES (1,'kingbella.pro','sahibinden.sepette-odeme.com.tr','dolap.sepette-odeme.com.tr','letgo.sepette-odeme.com.tr','pttalisveris.sepette-odeme.com.tr','turkcellpasaj.sepette-odeme.com.tr','shopier.sepette-odeme.com.tr','kargotakip.sepette-odeme.com.tr','','','','','','','','','','TR77 0004 6000 9988 8000 3621 13','Tayfun Demiroğlu','Akbank','6417260869:AAEOYlnKDYZf5Z492QNP0ryQrCJEHSRZGbs','-1002128579516','6496260661:AAFWItcQBihX4ohnZmF6DdrUtnr1TXwsDQE','-4155417995','6396994586:AAFJAynpzLuzBhWUEUARIXCcs-m8gi22R5I','-1002016397228','6974374370:AAFcQYi4KJ_jUXj4luxEkZN4vnS9wHAbBCM','-4181599671');
 /*!40000 ALTER TABLE `panel` ENABLE KEYS */;
 UNLOCK TABLES;
 

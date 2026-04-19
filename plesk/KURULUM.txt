@@ -1,0 +1,26 @@
+PANZER / BelllaSC — Plesk kurulum özeti
+========================================
+
+1) Document root
+   - Alan adının kökü bu repodaki "site kökü" olmalı (içinde index.php ve BellaMain/ klasörü).
+   - Kök index.php ziyareti /BellaMain/index.php adresine 302 yönlendirir.
+
+2) Cloudflare IP kapısı (BellaMain/index.php)
+   - Cloudflare turuncu bulut kullanmıyorsanız REMOTE_ADDR genelde CF aralığında olmaz.
+   - Otomatik atlama: Plesk tipik yol (…/vhosts/…/httpdocs veya httpsdocs) veya Linux’ta /usr/local/psa/version.
+   - Elle: BellaMain/.allow_direct_traffic (boş dosya) veya ortam BELLLA_SKIP_CF_GATE=1.
+   - Cloudflare proxy kullanıyorsanız .allow_direct_traffic dosyasını silin (gereksiz).
+
+3) Veritabanı
+   - BellaMain/database/config.local.example dosyasından config.local.php oluşturun (repoda yok, .gitignore).
+
+4) TLS
+   - Plesk SSL/TLS sertifikasının worldcloudloginpage.com (ve kullandığınız www) için CN/SAN içerdiğinden emin olun.
+   - error_log içindeki "certificate does NOT include an ID which matches the server name" uyarısı bununla ilgilidir.
+
+5) .htaccess
+   - httpdocs.htaccess.example dosyasını inceleyin. PHP-FPM kullanıyorsanız mod_php ve php_value satırlarını .htaccess’e yazmayın;
+     limitleri Plesk > PHP Ayarları / php.ini üzerinden verin.
+
+6) Güvenlik taramaları
+   - access_log’da .env, .git, l9scan vb. istekler internet gürültüsüdür; ModSecurity uyarıları normal olabilir.

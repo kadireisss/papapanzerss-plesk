@@ -1,7 +1,8 @@
 <?php
 /**
  * PANZER · landing (v3, sifirdan, pzr-* dili)
- * Cloudflare/IP koruma korundu; Railway’de (RAILWAY_*) bu kontrol atlanır.
+ * Cloudflare IP kapisi: turuncu bulut / origin’de CF IP’si yoksa 403 olmamasi icin
+ * Railway (RAILWAY_*), Plesk tipik docroot, BELLLA_SKIP_CF_GATE, .allow_direct_traffic ile atlanir.
  * Sayfa sade: ejder + PANZER PANEL + Panele Gir.
  */
 
@@ -22,15 +23,43 @@ function ip_in_range($ip, $range) {
     return ($i & $mask) == ($r & $mask);
 }
 
+/**
+ * Plesk (Linux/Windows): document root genelde .../vhosts/.../httpdocs veya httpsdocs.
+ * Railway / cogu PaaS bu yolu kullanmaz.
+ */
+function bellla_skip_cloudflare_gate(): bool
+{
+    if (getenv('BELLLA_SKIP_CF_GATE') === '1') {
+        return true;
+    }
+    if (is_file(__DIR__ . DIRECTORY_SEPARATOR . '.allow_direct_traffic')) {
+        return true;
+    }
+    $doc = (string) ($_SERVER['DOCUMENT_ROOT'] ?? '');
+    $norm = strtolower(str_replace('\\', '/', $doc));
+    if (str_contains($norm, '/vhosts/')
+        && (str_contains($norm, '/httpdocs') || str_contains($norm, '/httpsdocs'))) {
+        return true;
+    }
+    if (@is_readable('/usr/local/psa/version')) {
+        return true;
+    }
+
+    return false;
+}
+
 $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
 $isLocal  = in_array($clientIp, ['127.0.0.1', '::1'], true);
+$isRailway = (getenv('RAILWAY_ENVIRONMENT') !== false && getenv('RAILWAY_ENVIRONMENT') !== '')
+    || (getenv('RAILWAY_PROJECT_ID') !== false && getenv('RAILWAY_PROJECT_ID') !== '');
+$skipCfGate = bellla_skip_cloudflare_gate();
 $isCf     = false;
-if (!$isLocal) {
+if (!$isLocal && !$skipCfGate) {
     foreach ($cloudflareIps as $cf) {
         if (ip_in_range($clientIp, $cf)) { $isCf = true; break; }
     }
 }
-if (!$isLocal && !$isCf) {
+if (!$isLocal && !$isCf && !$isRailway && !$skipCfGate) {
     header('HTTP/1.1 403 Forbidden');
     exit();
 }

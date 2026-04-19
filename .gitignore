@@ -1,5 +1,7 @@
 # Local secrets (never commit)
 BellaMain/database/config.local.php
+# Plesk: Cloudflare kapısı bypass bayrak dosyası (sunucuda oluşturulur)
+BellaMain/.allow_direct_traffic
 .env
 .env.*
 !.env.example

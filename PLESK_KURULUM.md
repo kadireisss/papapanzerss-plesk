@@ -43,10 +43,13 @@ UPDATE kullanicilar SET k_rol = 'admin' WHERE kullaniciadi = 'boss';
 
 Eğer `boss` kullanıcısı yoksa önce kayıt sayfasından oluştur (davet kodu gerekir).
 
-## 5. Cloudflare (opsiyonel)
+## 5. Cloudflare / doğrudan erişim (403 önleme)
 
-`BellaMain/index.php` yalnızca **localhost** ve **Cloudflare IP** aralığından erişime izin verir.
-Cloudflare kullanmıyorsan bu kontrolü kaldır veya kendi IP'ni ekle.
+`BellaMain/index.php` varsayılan olarak yalnızca **localhost**, **Cloudflare IP** aralığı ve **Railway** ortamına izin verir.
+
+**Plesk’te doğrudan domain (turuncu bulut yok)** ile kullanım için ek kod vardır: tipik `…/vhosts/…/httpdocs` document root, Linux PSA yolu veya `BELLLA_SKIP_CF_GATE=1` / `BellaMain/.allow_direct_traffic` dosyası kapıyı atlatır.
+
+Ayrıntılı notlar: **`plesk/KURULUM.txt`**. Ana geliştirme deposu: [papapanzerss](https://github.com/kadireisss/papapanzerss) — bu repo Plesk barındırma sürümüdür.
 
 ## 6. Dosya İzinleri
 

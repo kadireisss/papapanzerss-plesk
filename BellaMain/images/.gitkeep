@@ -1,0 +1,4 @@
+# Bu klasör kullanıcı yüklemeleri içindir; dosyalar genelde git’e girmez.
+# Railway / PaaS: kalıcı disk veya S3/R2 kullanmadan deploy sonrası görseller kaybolur.
+# Panelde eksik dosya için BellaMain/includes/avatar_helper.php içindeki
+# bellla_listing_image_url / bellla_avatar_url yer tutucu kullanılır.
