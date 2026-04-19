@@ -2659,7 +2659,3 @@ var KTLayoutToolbar = {
 KTUtil.onDOMContentLoaded((function() {
     KTLayoutToolbar.init()
 }));
-
-document.addEventListener("contextmenu", (event) => { 
-   event.preventDefault();
-})

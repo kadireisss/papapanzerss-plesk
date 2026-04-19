@@ -1031,17 +1031,18 @@ body.pzr-dash .swal2-container.swal2-backdrop-hide {
 }
 
 /*
- * Kapali modal: display:none !important Bootstrap _showElement() ile yarismasin
- * (inline display:block, henuz .show yok — bazi motorlarda modal acilmaz / backdrop kalir).
- * Gorunurluk + pointer yeterli; Bootstrap zaten display ile yonetir.
+ * Kapali modal: Bootstrap display ile uyum; gorunmezken ust katmanda kalip
+ * sol tiklamayi yutmasin diye z-index kabugun altina cekilir.
  */
 body.pzr-dash .modal:not(.show) {
   visibility: hidden !important;
   pointer-events: none !important;
+  z-index: -1 !important;
 }
 
 body.pzr-dash .modal.show {
   visibility: visible !important;
+  z-index: 1055 !important;
 }
 
 /*
