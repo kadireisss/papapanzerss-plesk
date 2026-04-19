@@ -284,6 +284,7 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   color: var(--pzr-text);
   font-size: 0.7rem;
   font-weight: 700;
+  font-family: inherit;
   text-align: center;
   cursor: pointer;
   transition: all 0.22s var(--pzr-ease);
@@ -291,6 +292,11 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   line-height: 1.2;
   -webkit-user-select: none;
   user-select: none;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .pzr-mkt:hover {
@@ -1038,19 +1044,31 @@ body.pzr-dash .modal.show {
   visibility: visible !important;
 }
 
-/* Bootstrap: modal kapali iken kalan backdrop (JS hata) tiklamayi kesmesin */
+/*
+ * Backdrop: varsayilan tiklamayi yutma (Bootstrap yarim acilis / takili modal-open).
+ * Gercek acik modal varken disari tikla-kapat yine calissin.
+ */
+body.pzr-dash .modal-backdrop {
+  pointer-events: none !important;
+}
+
+body.pzr-dash:has(.modal.show) .modal-backdrop {
+  pointer-events: auto !important;
+}
+
+/* :has desteklemeyen tarayicilar: backdrop body sonuna eklenir, acik modal ondedir */
+body.pzr-dash .modal.show ~ .modal-backdrop {
+  pointer-events: auto !important;
+}
+
+/* modal-open degilken kalan backdrop tamamen gizle */
 body.pzr-dash:not(.modal-open) .modal-backdrop {
   display: none !important;
   pointer-events: none !important;
   opacity: 0 !important;
 }
 
-/* Görünür .modal.show yokken kalan backdrop / modal-open kalintisi (en sik “hic tiklanmiyor” nedeni) */
-body.pzr-dash:not(:has(.modal.show)) .modal-backdrop {
-  display: none !important;
-  pointer-events: none !important;
-  opacity: 0 !important;
-}
+/* Acik modal yokken modal-open kalintisi — scroll kilidi */
 body.pzr-dash:not(:has(.modal.show)).modal-open {
   overflow: auto !important;
   padding-right: 0 !important;
