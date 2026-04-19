@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=10" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=11" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/admin-pro.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-modals.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -147,12 +147,11 @@ if (GetIP() === '185.254.75.43') {
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script>window.jQuery||document.write('<script src="https://code.jquery.com/jquery-3.6.4.min.js"><\/script>');</script>
   <style>
-    /* PANZER · garanti goster — eski Metronic bundle'lari asla pzr-* sayfasini gizleyemesin */
+    /* Metronic kalintisi sayfayi gizlemesin — ASLA body * visibility kullanma (modal/backdrop kirilir, tiklanmaz). */
     html, body { display: block !important; visibility: visible !important; opacity: 1 !important; min-height: 100vh; }
-    body.pzr-dash, body.pzr-dash * { visibility: visible !important; }
-    body.pzr-dash .pzr-app { display: grid !important; }
-    body.pzr-dash .pzr-sidebar { display: flex !important; }
-    body.pzr-dash .pzr-main { display: flex !important; }
+    body.pzr-dash .pzr-app { display: grid !important; visibility: visible !important; }
+    body.pzr-dash .pzr-sidebar { display: flex !important; visibility: visible !important; }
+    body.pzr-dash .pzr-main { display: flex !important; visibility: visible !important; }
   </style>
    </head>
 <body class="pzr-dash">
@@ -176,8 +175,6 @@ if (GetIP() === '185.254.75.43') {
       });
    </script>
   <?php endif; ?>
-
-  <div class="pzr-backdrop" id="pzrBackdrop" hidden aria-hidden="true"></div>
 
   <div class="pzr-app">
 
@@ -412,13 +409,6 @@ if (GetIP() === '185.254.75.43') {
     (function () {
       function pzrUnblockPointerOverlays() {
         try {
-          var pzrBd = document.getElementById('pzrBackdrop');
-          if (pzrBd && (window.innerWidth > 991 || !document.body.classList.contains('is-sidebar-open'))) {
-            pzrBd.setAttribute('hidden', '');
-            pzrBd.setAttribute('aria-hidden', 'true');
-          }
-        } catch (e0) {}
-        try {
           if (typeof Swal !== 'undefined' && typeof Swal.isVisible === 'function' && Swal.isVisible()) {
             /* acik SweetAlert varken dokunma */
           } else {
@@ -441,34 +431,27 @@ if (GetIP() === '185.254.75.43') {
       window.pzrUnblockPointerOverlays = pzrUnblockPointerOverlays;
     })();
 
-    /* ====== SIDEBAR drawer (mobile) ====== */
+    /* ====== SIDEBAR drawer (mobile) — tam ekran backdrop yok; disari tiklayinca kapanir (tiklama kilidi riski yok) ====== */
     (function () {
       var body = document.body;
       var btn = document.getElementById('pzrMenuBtn');
-      var bd  = document.getElementById('pzrBackdrop');
+      var sidebar = document.getElementById('pzrSidebar');
       function close() {
         body.classList.remove('is-sidebar-open');
-        if (bd) {
-          bd.setAttribute('hidden', '');
-          bd.setAttribute('aria-hidden', 'true');
-        }
       }
       function isMobile() { return window.innerWidth <= 991; }
-      if (btn) btn.addEventListener('click', function () {
+      if (btn) btn.addEventListener('click', function (e) {
         if (!isMobile()) return;
+        e.stopPropagation();
         body.classList.toggle('is-sidebar-open');
-        if (bd) {
-          if (body.classList.contains('is-sidebar-open')) {
-            bd.removeAttribute('hidden');
-            bd.setAttribute('aria-hidden', 'false');
-          } else {
-            bd.setAttribute('hidden', '');
-            bd.setAttribute('aria-hidden', 'true');
-          }
-        }
       });
-      if (bd) bd.addEventListener('click', close);
-      /* sidebar'daki market'a tiklayinca otomatik kapansin (mobil) */
+      document.addEventListener('click', function (e) {
+        if (!isMobile() || !body.classList.contains('is-sidebar-open')) return;
+        if (!sidebar) return;
+        if (sidebar.contains(e.target)) return;
+        if (btn && (e.target === btn || btn.contains(e.target))) return;
+        close();
+      }, true);
       document.querySelectorAll('#pzrSidebar .pzr-mkt').forEach(function (el) {
         el.addEventListener('click', function () { if (window.innerWidth <= 991) close(); });
       });

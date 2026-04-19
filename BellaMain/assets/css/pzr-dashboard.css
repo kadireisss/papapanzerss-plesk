@@ -73,8 +73,7 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
 }
 
 /* ==================== ROOT LAYOUT ==================== */
-/* KRITIK: .pzr-backdrop .pzr-app'ten once; z-index dusuk tutulur. Varsayilan kapali + [hidden];
-   sadece mobil + is-sidebar-open iken acilir (tam ekran tiklamayi kesmesin). */
+/* Ana icerik ustunde; mobil drawer icin tam ekran backdrop kullanilmiyor (tiklama kilidi onlemi). */
 .pzr-app {
   position: relative;
   z-index: 110;
@@ -116,27 +115,6 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
     border-right: 1px solid var(--pzr-line-2);
   }
   body.pzr-dash.is-sidebar-open .pzr-sidebar { transform: translateX(0); }
-}
-
-.pzr-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.58);
-  z-index: 40;
-  display: none !important;
-  pointer-events: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  transition: opacity 0.25s var(--pzr-ease), visibility 0.25s var(--pzr-ease);
-}
-
-@media (max-width: 991px) {
-  body.pzr-dash.is-sidebar-open .pzr-backdrop:not([hidden]) {
-    display: block !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
 }
 
 /* Sidebar header */
@@ -1042,6 +1020,7 @@ body.pzr-dash .swal2-container.swal2-backdrop-hide {
 
 /* Bootstrap: acik olmayan modal diyalogu hicbir sekilde event yakalamasin */
 body.pzr-dash .modal:not(.show) {
+  display: none !important;
   pointer-events: none !important;
 }
 
