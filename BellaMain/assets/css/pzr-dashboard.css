@@ -73,8 +73,8 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
 }
 
 /* ==================== ROOT LAYOUT ==================== */
-/* KRITIK: #pzrBackdrop (z-index:90) DOM'da .pzr-app'ten ONCE; app dusuk z-index ise
-   backdrop tum sayfayi (sidebar+dahil) ustunde tutar ve tiklamalari yutar. */
+/* KRITIK: .pzr-backdrop .pzr-app'ten once; z-index dusuk tutulur. Varsayilan kapali + [hidden];
+   sadece mobil + is-sidebar-open iken acilir (tam ekran tiklamayi kesmesin). */
 .pzr-app {
   position: relative;
   z-index: 110;
@@ -123,24 +123,19 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   inset: 0;
   background: rgba(0, 0, 0, 0.58);
   z-index: 40;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.25s var(--pzr-ease);
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: opacity 0.25s var(--pzr-ease), visibility 0.25s var(--pzr-ease);
 }
 
 @media (max-width: 991px) {
-  /* Sidebar kapaliyken backdrop DOM'da tam ekran kalmasin — bazi mobil tarayicilarda tiklamayi yutuyordu */
-  body.pzr-dash:not(.is-sidebar-open) #pzrBackdrop {
-    display: none !important;
-    pointer-events: none !important;
-  }
-  body.pzr-dash.is-sidebar-open .pzr-backdrop {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+  body.pzr-dash.is-sidebar-open .pzr-backdrop:not([hidden]) {
+    display: block !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 
@@ -1066,13 +1061,6 @@ body.pzr-dash:not(:has(.modal.show)) .modal-backdrop {
 body.pzr-dash:not(:has(.modal.show)).modal-open {
   overflow: auto !important;
   padding-right: 0 !important;
-}
-
-/* Drawer kapaliyken backdrop hicbir viewport’ta pointer yakalamasin (mobil + masaustu) */
-body.pzr-dash:not(.is-sidebar-open) #pzrBackdrop.pzr-backdrop {
-  display: none !important;
-  pointer-events: none !important;
-  visibility: hidden !important;
 }
 
 /* Bootstrap modal text fix in dashboard scope */
