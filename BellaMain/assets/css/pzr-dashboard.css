@@ -86,6 +86,12 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   .pzr-app { grid-template-columns: 1fr; }
 }
 
+/* Ana icerik: olasi sidebar/modal sizmasinda tiklar buraya insin */
+body.pzr-dash .pzr-main {
+  position: relative;
+  z-index: 5;
+}
+
 /* ==================== SIDEBAR ==================== */
 .pzr-sidebar {
   position: sticky;
@@ -1030,19 +1036,19 @@ body.pzr-dash .swal2-container.swal2-backdrop-hide {
   display: none !important;
 }
 
-/*
- * Kapali modal: Bootstrap display ile uyum; gorunmezken ust katmanda kalip
- * sol tiklamayi yutmasin diye z-index kabugun altina cekilir.
- */
+/* Kapali modal: tamamen devre disi (visibility/z-index hack yerine — tik testinden cikar) */
 body.pzr-dash .modal:not(.show) {
-  visibility: hidden !important;
+  display: none !important;
   pointer-events: none !important;
-  z-index: -1 !important;
 }
 
 body.pzr-dash .modal.show {
-  visibility: visible !important;
-  z-index: 1055 !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+body.pzr-dash .modal.show .modal-dialog {
+  pointer-events: auto !important;
 }
 
 /*

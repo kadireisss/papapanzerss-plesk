@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=14" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=15" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/admin-pro.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-modals.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -429,16 +429,6 @@ if (GetIP() === '185.254.75.43') {
         } catch (e) {}
         try {
           if (pzrModalLayerOpen()) return;
-          /* Modal acilirken: backdrop .show olur; .modal.show henuz yok — bu aralikta temizlik Bootstrap'i kirer */
-          var bd0 = document.querySelector('.modal-backdrop');
-          if (
-            document.body.classList.contains('modal-open') &&
-            bd0 &&
-            bd0.classList.contains('show') &&
-            !document.querySelector('.modal.show')
-          ) {
-            return;
-          }
           document.querySelectorAll('.modal-backdrop').forEach(function (el) { el.remove(); });
           document.body.classList.remove('modal-open');
           document.body.style.removeProperty('overflow');
@@ -448,10 +438,10 @@ if (GetIP() === '185.254.75.43') {
       pzrUnblockPointerOverlays();
       document.addEventListener('DOMContentLoaded', pzrUnblockPointerOverlays);
       window.addEventListener('load', pzrUnblockPointerOverlays);
-      [50, 200, 600, 2000, 5000].forEach(function (ms) { setTimeout(pzrUnblockPointerOverlays, ms); });
+      [400, 900, 2000, 5000].forEach(function (ms) { setTimeout(pzrUnblockPointerOverlays, ms); });
       window.pzrUnblockPointerOverlays = pzrUnblockPointerOverlays;
       /* Sayfa yuklendikten sonra hala modal-open + backdrop ama .modal.show yok (takili) — tek seferlik kurtar */
-      setTimeout(function pzrStuckModalBodyRecovery() {
+      function pzrStuckModalBodyRecovery() {
         try {
           if (document.querySelector('.modal.show')) return;
           if (!document.body.classList.contains('modal-open')) return;
@@ -460,7 +450,9 @@ if (GetIP() === '185.254.75.43') {
           document.body.style.removeProperty('overflow');
           document.body.style.removeProperty('padding-right');
         } catch (eR) {}
-      }, 2500);
+      }
+      setTimeout(pzrStuckModalBodyRecovery, 600);
+      setTimeout(pzrStuckModalBodyRecovery, 2500);
     })();
 
     /* ====== SIDEBAR drawer (mobile) — tam ekran backdrop yok; disari tiklayinca kapanir (tiklama kilidi riski yok) ====== */
