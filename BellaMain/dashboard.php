@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="assets/css/pzr-dashboard.css?v=5" rel="stylesheet" type="text/css">
+  <link href="assets/css/pzr-dashboard.css?v=6" rel="stylesheet" type="text/css">
   <link href="assets/css/admin-pro.css?v=3" rel="stylesheet" type="text/css">
   <link href="assets/css/pzr-modals.css?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -542,7 +542,7 @@ function kopyalaMetni2(id) {
 
   <!-- PANZER: eski Metronic bundle (~2.5MB) cikarildi, pzr-* CSS herseyi sagliyor.
        Sadece Bootstrap (modal toggle), SweetAlert2 (mesajlar), Select2 (admin formu), iller.js (form bagimliligi) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js?v=532" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';document.body.appendChild(s);})()"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/popular@2.4.0/index.min.js"></script>

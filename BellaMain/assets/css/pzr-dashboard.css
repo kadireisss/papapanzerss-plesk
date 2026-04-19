@@ -73,9 +73,11 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
 }
 
 /* ==================== ROOT LAYOUT ==================== */
+/* KRITIK: #pzrBackdrop (z-index:90) DOM'da .pzr-app'ten ONCE; app dusuk z-index ise
+   backdrop tum sayfayi (sidebar+dahil) ustunde tutar ve tiklamalari yutar. */
 .pzr-app {
   position: relative;
-  z-index: 1;
+  z-index: 110;
   display: grid;
   grid-template-columns: var(--pzr-sidebar-w) 1fr;
   min-height: 100vh;
@@ -120,7 +122,7 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.58);
-  z-index: 90;
+  z-index: 40;
   display: none;
   opacity: 0;
   visibility: hidden;
@@ -1035,6 +1037,13 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
 /* SweetAlert2 — her zaman tiklanabilir ve en ustte (backdrop/legacy overlay ustunden) */
 body.pzr-dash .swal2-container {
   z-index: 20050 !important;
+}
+
+/* Bootstrap: modal kapali iken kalan backdrop (JS hata) tiklamayi kesmesin */
+body.pzr-dash:not(.modal-open) .modal-backdrop {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
 
 /* Bootstrap modal text fix in dashboard scope */
