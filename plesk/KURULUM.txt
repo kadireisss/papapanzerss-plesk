@@ -28,3 +28,8 @@ PANZER / BelllaSC — Plesk kurulum özeti
 7) Dashboard yavaşlığı (admin / çok ilan)
    - Kod artık pazaryeri listelerinde LIMIT kullanır (varsayılan 150 satır).
    - İsterseniz Plesk ortam değişkeni: BELLLA_DASHBOARD_LIST_LIMIT=200 (25–500 arası).
+
+8) Cloudflare “beacon.min.js” / SRI / Firefox izleme koruması
+   - Konsolda static.cloudflareinsights.com veya integrity hatası görürseniz: Cloudflare panelinde
+     Web Analytics / Browser Insights (veya otomatik beacon) kapatılabilir; bu script PANZER kodunda yoktur,
+     kenar ağ (edge) enjekte eder. Firefox’ta site için izleme korumasını gevşetmek de yardımcı olabilir.

@@ -1039,6 +1039,17 @@ body.pzr-dash .swal2-container {
   z-index: 20050 !important;
 }
 
+/* Swal animasyon sonu / hata: konteyner acik gorunup tiklamayi kesmesin */
+body.pzr-dash .swal2-container.swal2-backdrop-hide {
+  pointer-events: none !important;
+  display: none !important;
+}
+
+/* Bootstrap: acik olmayan modal diyalogu hicbir sekilde event yakalamasin */
+body.pzr-dash .modal:not(.show) {
+  pointer-events: none !important;
+}
+
 /* Bootstrap: modal kapali iken kalan backdrop (JS hata) tiklamayi kesmesin */
 body.pzr-dash:not(.modal-open) .modal-backdrop {
   display: none !important;

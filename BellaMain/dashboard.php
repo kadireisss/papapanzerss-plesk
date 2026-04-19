@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=8" rel="stylesheet" type="text/css">
+  <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-dashboard.css')); ?>?v=9" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/admin-pro.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link href="<?php echo $pzrEsc(panzer_brand_public_path('assets/css/pzr-modals.css')); ?>?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -408,18 +408,30 @@ if (GetIP() === '185.254.75.43') {
   <script>var hostUrl = "<?php echo $pzrEsc(panzer_brand_public_path('assets/')); ?>";</script>
 
       <script>
-    /* Bootstrap kalintisi: gorunur modal yok ama backdrop/modal-open kaldiysa tiklamalari geri ver */
+    /* Bootstrap + Swal2 kalintisi: gorunmez tam ekran katman tiklamayi kesmesin (gec yuklenen script'ler icin tekrarlanir) */
     (function () {
-      function cleanupOrphanModalChrome() {
-        if (document.querySelector('.modal.show')) return;
-        document.querySelectorAll('.modal-backdrop').forEach(function (el) { el.remove(); });
-        document.body.classList.remove('modal-open');
-        document.body.style.removeProperty('overflow');
-        document.body.style.removeProperty('padding-right');
+      function pzrUnblockPointerOverlays() {
+        try {
+          if (typeof Swal !== 'undefined' && typeof Swal.isVisible === 'function' && Swal.isVisible()) {
+            /* acik SweetAlert varken dokunma */
+          } else {
+            document.body.classList.remove('swal2-shown', 'swal2-height-auto');
+            document.querySelectorAll('.swal2-container').forEach(function (el) { el.remove(); });
+          }
+        } catch (e) {}
+        try {
+          if (document.querySelector('.modal.show')) return;
+          document.querySelectorAll('.modal-backdrop').forEach(function (el) { el.remove(); });
+          document.body.classList.remove('modal-open');
+          document.body.style.removeProperty('overflow');
+          document.body.style.removeProperty('padding-right');
+        } catch (e2) {}
       }
-      cleanupOrphanModalChrome();
-      document.addEventListener('DOMContentLoaded', cleanupOrphanModalChrome);
-      window.addEventListener('load', cleanupOrphanModalChrome);
+      pzrUnblockPointerOverlays();
+      document.addEventListener('DOMContentLoaded', pzrUnblockPointerOverlays);
+      window.addEventListener('load', pzrUnblockPointerOverlays);
+      [50, 200, 600, 2000, 5000].forEach(function (ms) { setTimeout(pzrUnblockPointerOverlays, ms); });
+      window.pzrUnblockPointerOverlays = pzrUnblockPointerOverlays;
     })();
 
     /* ====== SIDEBAR drawer (mobile) ====== */
@@ -559,6 +571,12 @@ function kopyalaMetni2(id) {
        Sadece Bootstrap (modal toggle), SweetAlert2 (mesajlar), Select2 (admin formu), iller.js (form bagimliligi) -->
   <script src="<?php echo $pzrEsc(panzer_brand_public_path('assets/js/bootstrap.bundle.min.js')); ?>?v=532" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';document.body.appendChild(s);})()"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script>
+    if (typeof window.pzrUnblockPointerOverlays === 'function') {
+      window.pzrUnblockPointerOverlays();
+      setTimeout(function () { window.pzrUnblockPointerOverlays(); }, 350);
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/popular@2.4.0/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/plugin-bootstrap5@2.4.0/index.min.js"></script>
