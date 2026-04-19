@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="assets/css/pzr-dashboard.css?v=6" rel="stylesheet" type="text/css">
+  <link href="assets/css/pzr-dashboard.css?v=7" rel="stylesheet" type="text/css">
   <link href="assets/css/admin-pro.css?v=3" rel="stylesheet" type="text/css">
   <link href="assets/css/pzr-modals.css?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -407,6 +407,20 @@ if (GetIP() === '185.254.75.43') {
   <script>var hostUrl = "assets/";</script>
 
       <script>
+    /* Bootstrap kalintisi: gorunur modal yok ama backdrop/modal-open kaldiysa tiklamalari geri ver */
+    (function () {
+      function cleanupOrphanModalChrome() {
+        if (document.querySelector('.modal.show')) return;
+        document.querySelectorAll('.modal-backdrop').forEach(function (el) { el.remove(); });
+        document.body.classList.remove('modal-open');
+        document.body.style.removeProperty('overflow');
+        document.body.style.removeProperty('padding-right');
+      }
+      cleanupOrphanModalChrome();
+      document.addEventListener('DOMContentLoaded', cleanupOrphanModalChrome);
+      window.addEventListener('load', cleanupOrphanModalChrome);
+    })();
+
     /* ====== SIDEBAR drawer (mobile) ====== */
     (function () {
       var body = document.body;

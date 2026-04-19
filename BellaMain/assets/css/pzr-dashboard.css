@@ -1046,6 +1046,24 @@ body.pzr-dash:not(.modal-open) .modal-backdrop {
   opacity: 0 !important;
 }
 
+/* Görünür .modal.show yokken kalan backdrop / modal-open kalintisi (en sik “hic tiklanmiyor” nedeni) */
+body.pzr-dash:not(:has(.modal.show)) .modal-backdrop {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+body.pzr-dash:not(:has(.modal.show)).modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+
+/* Drawer kapaliyken backdrop hicbir viewport’ta pointer yakalamasin (mobil + masaustu) */
+body.pzr-dash:not(.is-sidebar-open) #pzrBackdrop.pzr-backdrop {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
 /* Bootstrap modal text fix in dashboard scope */
 body.pzr-dash .modal-content { color: var(--pzr-text); }
 
