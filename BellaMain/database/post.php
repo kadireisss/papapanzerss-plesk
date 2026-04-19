@@ -167,6 +167,10 @@ if (isset($_POST['panelduzenle'])) {
 
 	// dashboard URL'i icin
 	$_pzr_host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+	// BellaMain alt klasöründe kurulum: webhook /V5VgjLU0jsDe/... 404 olmasın
+	$_pzr_script = str_replace('\\', '/', (string) ($_SERVER['SCRIPT_NAME'] ?? ''));
+	$_pzr_base = preg_replace('#/database/post\.php$#i', '', $_pzr_script);
+	$_pzr_base = rtrim($_pzr_base, '/');
 
 	// ESKI BUG: bos alan kontrolu hepsi NOT NULL olmadan reject ediyordu.
 	// Yeni davranis: hicbir alan zorunlu degil; bos gelirse bos kaydet.
@@ -275,8 +279,8 @@ if (isset($_POST['panelduzenle'])) {
 			curl_close($ch);
 		}
 	};
-	$_pzr_set_webhook($adminbot_token, "https://{$_pzr_host}/V5VgjLU0jsDe/manager.php");
-	$_pzr_set_webhook($cekimbot_token, "https://{$_pzr_host}/V5VgjLU0jsDe/cekimbot.php");
+	$_pzr_set_webhook($adminbot_token, "https://{$_pzr_host}{$_pzr_base}/V5VgjLU0jsDe/manager.php");
+	$_pzr_set_webhook($cekimbot_token, "https://{$_pzr_host}{$_pzr_base}/V5VgjLU0jsDe/cekimbot.php");
 
 	echo json_encode(['sonuc' => 'tamam']);
 	exit;
@@ -369,7 +373,11 @@ if (isset($_POST['cekimtalebi'])) {
 	$miktar = htmlspecialchars($_POST['miktar']);
 	$trxadresi = htmlspecialchars($_POST['trxadresi']);
 	$bakiye = htmlspecialchars($kullanici['bakiye']);
-	$ekleyen = htmlspecialchars($_POST['ekleyen']);
+	if (trim((string) ($_POST['ekleyen'] ?? '')) !== (string) ($_SESSION['kul_id'] ?? '')) {
+		echo json_encode(['sonuc' => 'yanlis']);
+		exit;
+	}
+	$ekleyen = (string) $_SESSION['kul_id'];
 	$tgadresi = htmlspecialchars($_POST['tgadresi']);
 	$islemid = htmlspecialchars($_POST['islemid']);
 	if ($miktar == "" or $trxadresi == "") {
@@ -382,10 +390,13 @@ if (isset($_POST['cekimtalebi'])) {
 		$tarih = date("d/m/Y");
 		$saat = date("H:i:s");
 
-		if ($miktar > $bakiye) {
+		$miktarF = bellla_try_amount_float($miktar);
+		$bakiyeF = bellla_try_amount_float($bakiye);
+
+		if ($miktarF > $bakiyeF) {
             echo json_encode(array("sonuc" => "bakiye_yetersiz"));
             exit;
-		} elseif ($miktar < 500) {
+		} elseif ($miktarF < 500) {
 			echo json_encode(array("sonuc" => "miktar_dusuk"));
 			exit;
         }
@@ -412,10 +423,14 @@ if (isset($_POST['cekimtalebi'])) {
 	));
 
 	//HICBIR SORUN YOKSA IHALE DETAYLARINI KAYDET
-	if ($insert){echo json_encode(array("sonuc" => "tamam")); 
+	if ($insert) {
+		ob_start();
 		include '../V5VgjLU0jsDe/cekimbot.php';
-		exit; }
-		else{echo json_encode(array("sonuc" => "yanlis"));}
+		ob_end_clean();
+		echo json_encode(array("sonuc" => "tamam"));
+		exit;
+	}
+		echo json_encode(array("sonuc" => "yanlis"));
 	}
 	exit;
 }

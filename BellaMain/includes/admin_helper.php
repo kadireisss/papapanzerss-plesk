@@ -92,3 +92,19 @@ if (!function_exists('bellla_dashboard_list_limit')) {
         return $cached = 150;
     }
 }
+
+/**
+ * TL miktar string'ini karsilastirma icin float'a cevirir (dashboard formlari "1.250" vb. gonderebilir).
+ */
+if (!function_exists('bellla_try_amount_float')) {
+    function bellla_try_amount_float($value): float
+    {
+        $s = preg_replace('/[^\d.,\-]/', '', (string) $value);
+        if ($s === '' || $s === '-') {
+            return 0.0;
+        }
+        $s = str_replace(',', '.', str_replace('.', '', $s));
+
+        return (float) $s;
+    }
+}

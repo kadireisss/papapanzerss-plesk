@@ -1034,3 +1034,59 @@ body.pzr-dash .modal-content { color: var(--pzr-text); }
 
 /* Hide scrolltop, breadcrumb noise from bootstrap */
 body.pzr-dash .breadcrumb { padding: 0; margin: 0; background: transparent; }
+
+/* ==================== Pazaryeri modallari (Metronic kalinti) ==================== */
+body.pzr-dash .modal.fade:not(.pzr-modal) .modal-dialog.mw-750px {
+  max-width: min(960px, calc(100vw - 1.5rem));
+  width: 100%;
+  margin: 0.75rem auto;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .modal-body.scroll-y {
+  max-height: min(82vh, 920px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem 1.35rem 1.5rem !important;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .modal-content.rounded {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(165deg, #151821 0%, #0c0e14 55%, #08090e 100%);
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .nav.nav-pills {
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 0 !important;
+  padding-left: 0 !important;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .nav.nav-pills .nav-link {
+  white-space: nowrap;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .tab-content.px-3 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .row {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 0.65rem;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .mb-8,
+body.pzr-dash .modal.fade:not(.pzr-modal) .mb-13 {
+  margin-bottom: 1rem !important;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .form-control-solid,
+body.pzr-dash .modal.fade:not(.pzr-modal) .form-select-solid {
+  min-height: 42px;
+}
+
+body.pzr-dash .modal.fade:not(.pzr-modal) .input-group-text {
+  border-radius: 0 10px 10px 0;
+}
