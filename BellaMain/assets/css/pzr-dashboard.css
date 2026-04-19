@@ -72,11 +72,10 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
   display: inline-flex !important;
 }
 
-/* ==================== INTERAKTIF KABUK (modallar bu div disinda) ==================== */
+/* ==================== KABUK (#pzrDashRoot) — Bootstrap z-index ile carpma yok ==================== */
 body.pzr-dash #pzrDashRoot {
   position: relative;
-  z-index: 19000;
-  isolation: isolate;
+  z-index: 1;
   pointer-events: auto;
 }
 
@@ -96,7 +95,7 @@ body.pzr-dash #pzrDashRoot .pzr-app {
 
 body.pzr-dash #pzrDashRoot .pzr-main {
   position: relative;
-  z-index: 5;
+  z-index: 2;
 }
 
 /* ==================== SIDEBAR ==================== */
@@ -1032,9 +1031,9 @@ body.pzr-dash #pzrDashRoot .pzr-main {
   .pzr-footer { padding: 0.85rem 1rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
 
-/* SweetAlert2 — her zaman en ustte */
+/* SweetAlert2 — Bootstrap modal ustunde */
 body.pzr-dash .swal2-container {
-  z-index: 300000 !important;
+  z-index: 20000 !important;
 }
 
 /* Swal animasyon sonu / hata: konteyner acik gorunup tiklamayi kesmesin */
@@ -1052,7 +1051,6 @@ body.pzr-dash .modal:not(.show) {
 body.pzr-dash .modal.show {
   display: block !important;
   pointer-events: none !important;
-  z-index: 21000 !important;
 }
 
 body.pzr-dash .modal.show .modal-dialog {
@@ -1065,7 +1063,6 @@ body.pzr-dash .modal.show .modal-dialog {
  */
 body.pzr-dash .modal-backdrop {
   pointer-events: none !important;
-  z-index: 20500 !important;
 }
 
 body.pzr-dash:has(.modal.show) .modal-backdrop {

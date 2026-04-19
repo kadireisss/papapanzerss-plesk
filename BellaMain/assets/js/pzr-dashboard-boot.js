@@ -1,20 +1,39 @@
 /**
- * PANZER dashboard kabugu — tek kaynak: overlay temizligi, mobil drawer, kullanici menusu.
+ * PANZER dashboard kabugu — overlay temizligi, mobil drawer, kullanici menusu.
  * Bootstrap + Swal yuklendikten HEMEN sonra baglanir.
  */
 (function () {
   'use strict';
 
+  /** Bootstrap acik modal: DOM'da .show ama aria-hidden=true genelde takili kalintidir */
+  function pzrStripGhostModalShow() {
+    try {
+      document.querySelectorAll('.modal.show[aria-hidden="true"]').forEach(function (m) {
+        m.classList.remove('show');
+        m.style.removeProperty('display');
+        m.setAttribute('aria-hidden', 'true');
+      });
+    } catch (e0) {}
+  }
+
   function pzrModalLayerOpen() {
     try {
-      return Array.prototype.some.call(document.querySelectorAll('.modal.show'), function (el) {
-        if (!el || !el.isConnected) return false;
+      pzrStripGhostModalShow();
+      var list = document.querySelectorAll('.modal.show');
+      for (var i = 0; i < list.length; i++) {
+        var el = list[i];
+        if (el.getAttribute('aria-hidden') === 'true') continue;
+        try {
+          if (typeof bootstrap !== 'undefined' && bootstrap.Modal && bootstrap.Modal.getInstance) {
+            var inst = bootstrap.Modal.getInstance(el);
+            if (inst && typeof inst._isShown === 'boolean' && inst._isShown === false) continue;
+          }
+        } catch (e1) {}
         var r = el.getBoundingClientRect();
-        return r.width > 0 && r.height > 0;
-      });
-    } catch (e0) {
-      return !!document.querySelector('.modal.show');
-    }
+        if (r.width > 8 && r.height > 8) return true;
+      }
+    } catch (e2) {}
+    return false;
   }
 
   function pzrSwalOpen() {
@@ -25,10 +44,12 @@
     }
   }
 
-  /** Gercek modal acik degilse: backdrop / body kilidi / olusu Swal kalintisi temizle */
+  /** Gercek modal / Swal acik degilse: backdrop, body kilidi, olusu Swal kalintisi temizle */
   function pzrForceStaleOverlayCleanup() {
     try {
-      if (pzrModalLayerOpen()) return;
+      pzrStripGhostModalShow();
+
+      if (pzrModalLayerOpen() || pzrSwalOpen()) return;
 
       document.querySelectorAll('.modal-backdrop').forEach(function (el) {
         el.remove();
@@ -38,13 +59,19 @@
       document.body.style.removeProperty('padding-right');
       document.documentElement.style.removeProperty('overflow');
 
-      if (!pzrSwalOpen()) {
-        document.body.classList.remove('swal2-shown', 'swal2-height-auto');
-        document.querySelectorAll('.swal2-container').forEach(function (el) {
-          el.remove();
-        });
-      }
-    } catch (e2) {}
+      document.querySelectorAll('.modal.show').forEach(function (m) {
+        if (typeof bootstrap !== 'undefined' && bootstrap.Modal && bootstrap.Modal.getInstance) {
+          if (bootstrap.Modal.getInstance(m)) return;
+        }
+        m.classList.remove('show');
+        m.setAttribute('aria-hidden', 'true');
+      });
+
+      document.body.classList.remove('swal2-shown', 'swal2-height-auto');
+      document.querySelectorAll('.swal2-container').forEach(function (el) {
+        el.remove();
+      });
+    } catch (e3) {}
   }
 
   function pzrUnblockPointerOverlays() {
@@ -61,16 +88,29 @@
     setTimeout(pzrUnblockPointerOverlays, ms);
   });
 
-  /* Sayfa acilisinda 15 sn: takili tam ekran katmanlari periyodik sok */
-  var sweepUntil = Date.now() + 15000;
-  var sweepId = setInterval(function () {
-    if (Date.now() > sweepUntil) {
-      clearInterval(sweepId);
-      return;
-    }
+  /* Takili tam ekran katman: modal/Swal yokken periyodik sok (hafif) */
+  setInterval(function () {
     if (pzrModalLayerOpen() || pzrSwalOpen()) return;
     pzrForceStaleOverlayCleanup();
-  }, 180);
+  }, 4000);
+
+  /* Ilk dokunusta backdrop / olu Swal konteyneri — tiklamayi yutan katman */
+  document.addEventListener(
+    'pointerdown',
+    function (e) {
+      var t = e.target;
+      if (!t || !t.classList) return;
+      if (pzrModalLayerOpen() || pzrSwalOpen()) return;
+      if (t.classList.contains('modal-backdrop')) {
+        pzrForceStaleOverlayCleanup();
+        return;
+      }
+      if (t.classList.contains('swal2-container') || (t.closest && t.closest('.swal2-container'))) {
+        if (!pzrSwalOpen()) pzrForceStaleOverlayCleanup();
+      }
+    },
+    true
+  );
 
   /* ====== Mobil sidebar ====== */
   (function () {
@@ -141,6 +181,5 @@
     });
   };
 
-  /* Swal yuklendikten hemen sonra bir tur daha */
   setTimeout(pzrUnblockPointerOverlays, 80);
 })();
