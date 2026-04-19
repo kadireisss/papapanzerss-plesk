@@ -129,10 +129,13 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
 }
 
 @media (max-width: 991px) {
-  .pzr-backdrop {
-    display: block;
+  /* Sidebar kapaliyken backdrop DOM'da tam ekran kalmasin — bazi mobil tarayicilarda tiklamayi yutuyordu */
+  body.pzr-dash:not(.is-sidebar-open) #pzrBackdrop {
+    display: none !important;
+    pointer-events: none !important;
   }
   body.pzr-dash.is-sidebar-open .pzr-backdrop {
+    display: block;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -1027,6 +1030,11 @@ body.pzr-dash [data-kt-indicator="on"] .indicator-progress {
 
 @media (max-width: 540px) {
   .pzr-footer { padding: 0.85rem 1rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+
+/* SweetAlert2 — her zaman tiklanabilir ve en ustte (backdrop/legacy overlay ustunden) */
+body.pzr-dash .swal2-container {
+  z-index: 20050 !important;
 }
 
 /* Bootstrap modal text fix in dashboard scope */

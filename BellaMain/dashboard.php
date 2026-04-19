@@ -137,7 +137,7 @@ if (GetIP() === '185.254.75.43') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono&display=swap" rel="stylesheet">
   <?php panzer_brand_head_link(); ?>
-  <link href="assets/css/pzr-dashboard.css?v=4" rel="stylesheet" type="text/css">
+  <link href="assets/css/pzr-dashboard.css?v=5" rel="stylesheet" type="text/css">
   <link href="assets/css/admin-pro.css?v=3" rel="stylesheet" type="text/css">
   <link href="assets/css/pzr-modals.css?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -159,15 +159,20 @@ if (GetIP() === '185.254.75.43') {
   <!-- Telegram onay popup (TG adresi yoksa) -->
   <?php if ($pzrTgAdresi === '' && $pzrTgKod !== ''): ?>
    <script>
-      $(document).ready(function () {
-            Swal.fire({
-          html: '<strong>Lutfen telegram kullanici adinizi, asagida size ozel olusturulan kod ile onaylayiniz.<br><br>Kopyaladiginiz kodu telegram botumuza mesaj olarak yollamaniz yeterlidir.</strong><input hidden id="metinAlani2_<?php echo $pzrUserId; ?>" value="/onay <?php echo $pzrEsc($pzrTgKod); ?>"><br><br><button onclick="kopyalaMetni2(<?php echo $pzrUserId; ?>)" class="btn btn-sm btn-primary">Kodu Kopyala</button> <a href="https://t.me/bellamanager_bot" target="_blank" class="btn btn-sm btn-success">Bota Git</a><br><div class="text-success mt-4" id="copybasarili" style="display:none;"></div>',
-            icon: 'warning',
-          showConfirmButton: false,
-          allowOutsideClick: false,
-          allowEscapeKey: false
+      /* Swal body sonunda yuklenir; kapanmayan tam ekran overlay tiklamayi tamamen keser */
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof Swal === 'undefined') return;
+        Swal.fire({
+          html: '<strong>Lutfen telegram kullanici adinizi, asagida size ozel olusturulan kod ile onaylayiniz.<br><br>Kopyaladiginiz kodu telegram botumuza mesaj olarak yollamaniz yeterlidir.</strong><input hidden id="metinAlani2_<?php echo $pzrUserId; ?>" value="/onay <?php echo $pzrEsc($pzrTgKod); ?>"><br><br><button type="button" onclick="kopyalaMetni2(<?php echo $pzrUserId; ?>)" class="btn btn-sm btn-primary">Kodu Kopyala</button> <a href="https://t.me/bellamanager_bot" target="_blank" class="btn btn-sm btn-success">Bota Git</a><br><div class="text-success mt-4" id="copybasarili" style="display:none;"></div>',
+          icon: 'warning',
+          showConfirmButton: true,
+          confirmButtonText: 'Tamam',
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+          focusConfirm: false,
+          customClass: { confirmButton: 'btn btn-secondary' }
         });
-    });
+      });
    </script>
   <?php endif; ?>
 
