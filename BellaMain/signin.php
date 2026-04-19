@@ -1,5 +1,5 @@
 <?php
-include("database/connect.php");
+require_once __DIR__ . '/database/connect.php';
 require_once __DIR__ . '/includes/panzer_brand.php';
 
 if (isset($_COOKIE['2tUgyO@H9E!4CuQ'])) {
