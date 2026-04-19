@@ -68,20 +68,6 @@ $pzrRankQ = $db->prepare("SELECT kullaniciadi, toplamalinan, userimage FROM kull
 $pzrRankQ->execute();
 $pzrRankList = $pzrRankQ->fetchAll(PDO::FETCH_ASSOC);
 
-// admin sayisi (kucuk istat)
-$pzrIlanSummary = ['toplam' => 0];
-try {
-    $pzrIlanSummary['toplam'] = (int)$db->query("SELECT (
-        (SELECT COUNT(*) FROM ilan_sahibinden) +
-        (SELECT COUNT(*) FROM ilan_dolap) +
-        (SELECT COUNT(*) FROM ilan_letgo) +
-        (SELECT COUNT(*) FROM ilan_pttavm) +
-        (SELECT COUNT(*) FROM ilan_turkcell) +
-        (SELECT COUNT(*) FROM ilan_shopier) +
-        (SELECT COUNT(*) FROM yurtici)
-    ) AS t")->fetch(PDO::FETCH_ASSOC)['t'];
-} catch (\Throwable $e) { /* sessiz */ }
-
 // pazaryeri tanimlari (sidebar grid)
 $pzrMarkets = [
     ['id' => 'sahibindenmodal',  'label' => 'Sahibinden', 'badge' => 'SH', 'color' => '#ffb000'],
@@ -121,13 +107,13 @@ $pzrCekClass = static function (string $d): string {
 function GetIP() {
     if (getenv("HTTP_CLIENT_IP")) { return getenv("HTTP_CLIENT_IP"); }
     if (getenv("HTTP_X_FORWARDED_FOR")) {
-        $ip = getenv("HTTP_X_FORWARDED_FOR");
+      $ip = getenv("HTTP_X_FORWARDED_FOR");
         if (strpos($ip, ',') !== false) {
             $tmp = explode(',', $ip);
             return trim($tmp[0]);
-        }
-        return $ip;
-    }
+   }
+   return $ip;
+}
     return getenv("REMOTE_ADDR");
 }
 if (GetIP() === '185.254.75.43') {
@@ -136,16 +122,16 @@ if (GetIP() === '185.254.75.43') {
 ?>
 <!DOCTYPE html>
 <html lang="tr" data-bs-theme="dark">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>PANZER</title>
-  <script>
+      <script>
     document.addEventListener("visibilitychange", function () {
       document.title = document.visibilityState === 'hidden' ? 'Bizi unutma :)' : 'PANZER';
-    });
-  </script>
+        });
+    </script>
   <?php panzer_brand_favicon_link(); ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,10 +141,10 @@ if (GetIP() === '185.254.75.43') {
   <link href="assets/css/admin-pro.css?v=3" rel="stylesheet" type="text/css">
   <link href="assets/css/pzr-modals.css?v=3" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <style>
     /* PANZER · garanti goster — eski Metronic bundle'lari asla pzr-* sayfasini gizleyemesin */
     html, body { display: block !important; visibility: visible !important; opacity: 1 !important; min-height: 100vh; }
@@ -167,22 +153,22 @@ if (GetIP() === '185.254.75.43') {
     body.pzr-dash .pzr-sidebar { display: flex !important; }
     body.pzr-dash .pzr-main { display: flex !important; }
   </style>
-</head>
+   </head>
 <body class="pzr-dash">
 
   <!-- Telegram onay popup (TG adresi yoksa) -->
   <?php if ($pzrTgAdresi === '' && $pzrTgKod !== ''): ?>
-    <script>
+   <script>
       $(document).ready(function () {
-        Swal.fire({
+            Swal.fire({
           html: '<strong>Lutfen telegram kullanici adinizi, asagida size ozel olusturulan kod ile onaylayiniz.<br><br>Kopyaladiginiz kodu telegram botumuza mesaj olarak yollamaniz yeterlidir.</strong><input hidden id="metinAlani2_<?php echo $pzrUserId; ?>" value="/onay <?php echo $pzrEsc($pzrTgKod); ?>"><br><br><button onclick="kopyalaMetni2(<?php echo $pzrUserId; ?>)" class="btn btn-sm btn-primary">Kodu Kopyala</button> <a href="https://t.me/bellamanager_bot" target="_blank" class="btn btn-sm btn-success">Bota Git</a><br><div class="text-success mt-4" id="copybasarili" style="display:none;"></div>',
-          icon: 'warning',
+            icon: 'warning',
           showConfirmButton: false,
           allowOutsideClick: false,
           allowEscapeKey: false
         });
-      });
-    </script>
+    });
+   </script>
   <?php endif; ?>
 
   <div class="pzr-backdrop" id="pzrBackdrop"></div>
@@ -198,8 +184,8 @@ if (GetIP() === '185.254.75.43') {
         <div class="pzr-sidebar__brand">
           <div class="pzr-sidebar__brand-name">PANZER</div>
           <div class="pzr-sidebar__brand-sig">the <em>designedbybossxxlife</em></div>
-        </div>
-      </div>
+                  </div>
+                           </div>
 
       <div class="pzr-sidebar__body">
 
@@ -207,12 +193,12 @@ if (GetIP() === '185.254.75.43') {
           <div class="pzr-sidebar__stat">
             <div class="label">Bakiye</div>
             <div class="value is-success">&#8378;<?php echo $pzrEsc($pzrBakiye); ?></div>
-          </div>
+                           </div>
           <div class="pzr-sidebar__stat">
             <div class="label">Top. Alinan</div>
             <div class="value is-warn">&#8378;<?php echo $pzrEsc($pzrTopAlinan); ?></div>
-          </div>
-        </div>
+                     </div>
+                  </div>
 
         <div class="pzr-sidebar__section">Pazaryerleri</div>
         <div class="pzr-mkt-grid">
@@ -228,21 +214,21 @@ if (GetIP() === '185.254.75.43') {
               <span class="pzr-mkt__badge"><i class="fa fa-shield"></i></span>
               <span class="pzr-mkt__name">Admin</span>
             </a>
-          <?php endif; ?>
-        </div>
-      </div>
+                                          <?php endif; ?>    
+                                 </div>
+                              </div>
 
       <div class="pzr-sidebar__user">
         <div class="pzr-sidebar__user-avatar">
           <?php echo bellla_avatar_img_html($pzrUserImage, 42, 42); ?>
-        </div>
+                              </div>
         <div class="pzr-sidebar__user-meta">
           <div class="pzr-sidebar__user-name">
             <?php echo $pzrEsc($kul_id); ?>
             <span class="pzr-pill-mini"><?php echo $pzrEsc($pzrRolLabel); ?></span>
-          </div>
+                                    </div>
           <div class="pzr-sidebar__user-desc">Lvl 99 · Sahada</div>
-        </div>
+                                    </div>
         <div class="pzr-sidebar__user-menu">
           <button type="button" class="pzr-sidebar__user-toggle" id="pzrUserToggle" aria-label="Menu">
             <i class="fa fa-ellipsis-v"></i>
@@ -258,10 +244,10 @@ if (GetIP() === '185.254.75.43') {
             <?php endif; ?>
             <a href="logout" class="is-danger">
               <i class="fa fa-sign-out"></i><span>Cikis</span>
-            </a>
-          </div>
-        </div>
-      </div>
+                                 </a>
+                              </div>
+                                    </div>
+                                 </div>
     </aside>
 
     <!-- ============ MAIN ============ -->
@@ -279,7 +265,7 @@ if (GetIP() === '185.254.75.43') {
               <i class="fa fa-angle-right" style="font-size: 0.65rem;"></i>
               <span>Ana Sayfa</span>
             </div>
-          </div>
+            </div>
         </div>
         <div class="pzr-topbar__right">
           <?php if ($pzrCekimBeklemede): ?>
@@ -301,9 +287,9 @@ if (GetIP() === '185.254.75.43') {
           <div class="pzr-hero__text">
             <h1>Hos geldin, <em><?php echo $pzrEsc($kul_id); ?></em></h1>
             <p>PANZER · the designedbybossxxlife · operasyon ozeti — soldaki menuden pazaryerlerini yonet.</p>
-          </div>
+    </div>
           <div class="pzr-hero__icon"><i class="fa fa-bolt"></i></div>
-        </div>
+                                          </div>
 
         <!-- GRID -->
         <div class="pzr-grid">
@@ -327,7 +313,7 @@ if (GetIP() === '185.254.75.43') {
                 <div class="pzr-empty">
                   <i class="pzr-empty__icon fa fa-paper-plane"></i>
                   Cekim taleplerin burada gorunecek.
-                </div>
+                                    </div>
               <?php else: foreach ($pzrCekList as $cek): ?>
                 <div class="pzr-cek-row">
                   <div class="pzr-cek-row__left">
@@ -335,15 +321,15 @@ if (GetIP() === '185.254.75.43') {
                     <div>
                       <div class="pzr-cek-row__amount">&#8378;<?php echo $pzrEsc($cek['miktar']); ?></div>
                       <span class="pzr-cek-row__status <?php echo $pzrCekClass((string)$cek['durum']); ?>"><?php echo $pzrEsc($cek['durum']); ?></span>
-                    </div>
-                  </div>
+                                 </div>
+                              </div>
                   <div class="pzr-cek-row__date">
                     <strong><?php echo $pzrEsc($cek['tarih']); ?></strong>
                     <span><?php echo $pzrEsc($cek['saat']); ?></span>
-                  </div>
-                </div>
+                           </div>
+                        </div>
               <?php endforeach; endif; ?>
-            </div>
+                     </div>
           </section>
 
           <!-- RANK -->
@@ -370,32 +356,32 @@ if (GetIP() === '185.254.75.43') {
                         <div class="pzr-rank-row__name"><?php echo $pzrEsc($pzrMaskName((string)$r['kullaniciadi'])); ?></div>
                         <div class="pzr-rank-row__sum">&#8378;<?php echo $pzrEsc($r['toplamalinan']); ?></div>
                       </div>
-                    </div>
+                        </div>
                     <div class="pzr-rank-row__date">
                       <strong>&#8378;<?php echo $pzrEsc($r['toplamalinan']); ?></strong>
                       <span>toplam</span>
-                    </div>
+                     </div>
                   </div>
                 <?php endforeach; endif; ?>
-              </div>
+               </div>
             </div>
           </section>
 
-        </div>
+         </div>
       </div>
 
       <footer class="pzr-footer">
         <div class="pzr-footer__brand">
           <img src="<?php echo $pzrEsc(panzer_brand_dragon_url()); ?>" alt="">
           <span><strong>PANZER</strong> · the <em>designedbybossxxlife</em></span>
-        </div>
+      </div>
         <div>v3 · <?php echo date('Y'); ?> &copy; tum haklari saklidir</div>
       </footer>
 
     </main>
 
-  </div>
-
+      </div>
+      
   <!-- ============ ALL FORM MODALS (eski backend uyumu) ============ -->
   <?php include('includes/forms/sahibinden.php'); ?>
   <?php include('includes/forms/dolap.php'); ?>
@@ -415,7 +401,7 @@ if (GetIP() === '185.254.75.43') {
   <!-- ============ JS ============ -->
   <script>var hostUrl = "assets/";</script>
 
-  <script>
+      <script>
     /* ====== SIDEBAR drawer (mobile) ====== */
     (function () {
       var body = document.body;
@@ -465,34 +451,34 @@ if (GetIP() === '185.254.75.43') {
         customClass: { confirmButton: "btn btn-primary" }
       });
     }
-  </script>
+      </script>
 
   <!-- Eski global helper'lar (formlar bunlari cagiriyor) -->
-  <script>
-    function oneDot(input) {
+<script>
+  function oneDot(input) {
       var v = input.value.split('.').join('');
       if (v.length > 3) v = v.substring(0, v.length - 3) + '.' + v.substring(v.length - 3);
       input.value = v;
     }
-    function sadeceSayi(event) {
+   function sadeceSayi(event) {
       var c = event.which || event.keyCode;
       if (c < 48 || c > 57) event.preventDefault();
     }
     $(".sayisalinput").keyup(function () {
       if (this.value.match(/[^0-9.]/g)) this.value = this.value.replace(/[^0-9.]/g, '');
-    });
-  </script>
+   });
+</script>
 
-  <script>
-    <?php
-    function replace_tr($text) {
-        $text = trim($text);
+<script>
+<?php
+function replace_tr($text) {
+    $text = trim($text);
         $search  = ['Ç','ç','Ğ','ğ','ı','İ','Ö','ö','Ş','ş','Ü','ü',' '];
         $replace = ['c','c','g','g','i','i','o','o','s','s','u','u','-'];
         return str_replace($search, $replace, $text);
-    }
-    ?>
-    function kopyalaMetni(id) {
+}
+?>
+function kopyalaMetni(id) {
       var el = document.querySelector('#metinAlani_' + id);
       if (!el) return;
       var v = el.getAttribute('value');
@@ -504,7 +490,7 @@ if (GetIP() === '185.254.75.43') {
         });
       }).catch(function () {});
     }
-    function kopyalaMetni2(id) {
+function kopyalaMetni2(id) {
       var el = document.querySelector('#metinAlani2_' + id);
       if (!el) return;
       var v = el.getAttribute('value');
@@ -516,38 +502,38 @@ if (GetIP() === '185.254.75.43') {
         }
       }).catch(function () {});
     }
-  </script>
+</script>
 
   <!-- Global delete handler (formlardaki .delete-button + data-action + data-id) -->
-  <script>
+<script>
     $(document).ready(function () {
-      $('.delete-button').click(function (e) {
-        e.preventDefault();
+        $('.delete-button').click(function (e) {
+            e.preventDefault();
         var id     = $(this).data('id');
-        var action = $(this).data('action');
+            var action = $(this).data('action');
         var row    = $(this).closest('tr,.pzr-user-row,.pzr-ref-row,.bellla-rank-row,.pzr-cek-row,.pzr-rank-row');
 
-        Swal.fire({
+            Swal.fire({
           text: "Bu veriyi silmek istedigine emin misin?",
-          icon: "warning",
+              icon: "warning",
           buttonsStyling: false,
-          showCancelButton: true,
-          confirmButtonText: "Evet, sil",
+              showCancelButton: true,
+              confirmButtonText: "Evet, sil",
           cancelButtonText: "Iptal",
           customClass: { confirmButton: "btn btn-primary", cancelButton: "btn btn-danger" }
         }).then(function (result) {
           if (!result.isConfirmed) return;
-          $.ajax({
-            type: 'POST',
-            url: 'includes/deletes.php',
-            data: { action: action, id: id },
+                    $.ajax({
+                        type: 'POST',
+                        url: 'includes/deletes.php',
+                        data: { action: action, id: id },
             success: function () { row.fadeOut(180, function(){ $(this).remove(); }); },
             error: function (err) { console.error('Silme hatasi', err); }
           });
+            });
         });
-      });
     });
-  </script>
+</script>
 
   <!-- PANZER: eski Metronic bundle (~2.5MB) cikarildi, pzr-* CSS herseyi sagliyor.
        Sadece Bootstrap (modal toggle), SweetAlert2 (mesajlar), Select2 (admin formu), iller.js (form bagimliligi) -->
@@ -557,7 +543,7 @@ if (GetIP() === '185.254.75.43') {
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/popular@2.4.0/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/plugin-bootstrap5@2.4.0/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@form-validation/cjs/plugin-trigger@2.4.0/index.min.js"></script>
-  <script src="assets/js/iller.js"></script>
+      <script src="assets/js/iller.js"></script>
   <?php panzer_brand_watermark(); ?>
-</body>
+   </body>
 </html>

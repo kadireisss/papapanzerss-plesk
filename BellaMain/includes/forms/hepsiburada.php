@@ -82,7 +82,7 @@ $hb_public_base = rtrim(bellla_project_web_root(), '/') . '/hepsiburada/hb_goste
                   <thead><tr class="border-bottom-0"><th class="p-0 w-50px"></th></tr></thead>
                   <tbody>
                     <?php
-                    $hq = $db->prepare("SELECT * FROM hb_urun WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+                    $hq = $db->prepare("SELECT * FROM hb_urun WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
                     $hq->execute();
                     if ($hq->rowCount()) {
                         foreach ($hq as $sonuc) {

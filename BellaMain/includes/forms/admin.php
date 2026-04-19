@@ -93,11 +93,11 @@ foreach ($pzrBots as $b) {
     if (!empty($pzrPanel[$b['key'] . '_token'])) { $pzrActiveBots++; }
 }
 
-$pzrUserListQ = $db->prepare("SELECT id, kullaniciadi, bakiye, k_rol, userimage FROM kullanicilar WHERE id != 1 ORDER BY id DESC");
+$pzrUserListQ = $db->prepare("SELECT id, kullaniciadi, bakiye, k_rol, userimage FROM kullanicilar WHERE id != 1 ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
 $pzrUserListQ->execute();
 $pzrUserList = $pzrUserListQ->fetchAll(PDO::FETCH_ASSOC);
 
-$pzrRefListQ = $db->prepare("SELECT id, ref_code FROM refkodlari ORDER BY id DESC");
+$pzrRefListQ = $db->prepare("SELECT id, ref_code FROM refkodlari ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
 $pzrRefListQ->execute();
 $pzrRefList = $pzrRefListQ->fetchAll(PDO::FETCH_ASSOC);
 ?>

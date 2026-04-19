@@ -72,3 +72,23 @@ if (!function_exists('bellla_can_touch_record')) {
         return bellla_is_admin($db, $kul_id);
     }
 }
+
+/**
+ * Dashboard modal listeleri (ilan/kart/hesap) — LIMIT yoksa admin tum tabloyu ceker; sayfa dakikalar surer.
+ * Ortam: BELLLA_DASHBOARD_LIST_LIMIT=200 (25–500 arası kabul edilir).
+ */
+if (!function_exists('bellla_dashboard_list_limit')) {
+    function bellla_dashboard_list_limit(): int
+    {
+        static $cached = null;
+        if ($cached !== null) {
+            return $cached;
+        }
+        $env = getenv('BELLLA_DASHBOARD_LIST_LIMIT');
+        if ($env !== false && $env !== '') {
+            return $cached = max(25, min(500, (int) $env));
+        }
+
+        return $cached = 150;
+    }
+}

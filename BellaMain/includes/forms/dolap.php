@@ -327,7 +327,7 @@
                       </tr>
                     </thead>
                     <tbody> <?php
-$query = $db->prepare("SELECT * FROM ilan_dolap WHERE 1=1 $bellla_owner_filter ORDER BY id DESC;");
+$query = $db->prepare("SELECT * FROM ilan_dolap WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit() . ";");
 $query->execute();
 $ilanlar = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -337,8 +337,7 @@ if ($query->rowCount()) {
                         <td>
                           <div class="symbol symbol-40px" bis_skin_checked="1">
                             <span class="symbol-label bg-light-info">
-                              <img src="images/
-															<?php echo $sonuc['resim1']; ?>" style="width:40px; height:40px; border-radius:0.85rem; object-fit: cover;">
+                              <?php echo bellla_listing_img_html($sonuc['resim1'] ?? null, 40, 40); ?>
                             </span>
                           </div>
                         </td>
@@ -468,7 +467,7 @@ if ($query->rowCount()) {
                 <div class="row">
                     <div class="table-responsive" style="height:180px">
                     <?php
-                                $query = $db->prepare("SELECT * FROM kartlar WHERE hizmet = 'Dolap' $bellla_owner_filter ORDER BY id DESC;");
+                                $query = $db->prepare("SELECT * FROM kartlar WHERE hizmet = 'Dolap' $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit() . ";");
                                 $query->execute();
                                 if ($query->rowCount()) {
                                     foreach ($query as $sonuc) {
@@ -538,7 +537,7 @@ if ($query->rowCount()) {
                 <div class="row">
                     <div class="table-responsive" style="height:180px">
                     <?php
-                                $query = $db->prepare("SELECT * FROM hesaplar WHERE hizmet = 'Dolap' $bellla_owner_filter ORDER BY id DESC;");
+                                $query = $db->prepare("SELECT * FROM hesaplar WHERE hizmet = 'Dolap' $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit() . ";");
                                 $query->execute();
                                 if ($query->rowCount()) {
                                     foreach ($query as $sonuc) {

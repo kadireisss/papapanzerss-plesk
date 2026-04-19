@@ -18,10 +18,10 @@ require_once __DIR__ . '/../admin_helper.php';
 $bellla_pttkargo_admin = bellla_is_admin($db, $kul_id);
 
 if ($bellla_pttkargo_admin) {
-    $bellla_pttkargo_q = $db->prepare("SELECT * FROM bella_pttkargo ORDER BY id DESC");
+    $bellla_pttkargo_q = $db->prepare('SELECT * FROM bella_pttkargo ORDER BY id DESC LIMIT ' . bellla_dashboard_list_limit());
     $bellla_pttkargo_q->execute();
 } else {
-    $bellla_pttkargo_q = $db->prepare("SELECT * FROM bella_pttkargo WHERE ekleyen = :u ORDER BY id DESC");
+    $bellla_pttkargo_q = $db->prepare('SELECT * FROM bella_pttkargo WHERE ekleyen = :u ORDER BY id DESC LIMIT ' . bellla_dashboard_list_limit());
     $bellla_pttkargo_q->execute([':u' => $kul_id]);
 }
 $bellla_pttkargo_list = $bellla_pttkargo_q->fetchAll(PDO::FETCH_ASSOC);

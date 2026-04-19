@@ -24,3 +24,7 @@ PANZER / BelllaSC — Plesk kurulum özeti
 
 6) Güvenlik taramaları
    - access_log’da .env, .git, l9scan vb. istekler internet gürültüsüdür; ModSecurity uyarıları normal olabilir.
+
+7) Dashboard yavaşlığı (admin / çok ilan)
+   - Kod artık pazaryeri listelerinde LIMIT kullanır (varsayılan 150 satır).
+   - İsterseniz Plesk ortam değişkeni: BELLLA_DASHBOARD_LIST_LIMIT=200 (25–500 arası).

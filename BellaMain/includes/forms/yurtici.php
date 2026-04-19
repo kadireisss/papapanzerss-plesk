@@ -246,7 +246,7 @@
                       </tr>
                     </thead>
                     <tbody> <?php
-$query = $db->prepare("SELECT * FROM yurtici WHERE 1=1 $bellla_owner_filter ORDER BY id DESC;");
+$query = $db->prepare("SELECT * FROM yurtici WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit() . ";");
 $query->execute();
 $ilanlar = $query->fetchAll(PDO::FETCH_ASSOC);
 

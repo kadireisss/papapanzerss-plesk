@@ -88,7 +88,7 @@ $ty_public_base = rtrim(bellla_project_web_root(), '/') . '/trendyol/ty_goster.p
                   <thead><tr class="border-bottom-0"><th class="p-0 w-50px"></th></tr></thead>
                   <tbody>
                     <?php
-                    $tq = $db->prepare("SELECT * FROM ty_ilan WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+                    $tq = $db->prepare("SELECT * FROM ty_ilan WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
                     $tq->execute();
                     if ($tq->rowCount()) {
                         foreach ($tq as $sonuc) {

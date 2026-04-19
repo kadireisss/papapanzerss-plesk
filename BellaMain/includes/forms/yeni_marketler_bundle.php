@@ -39,7 +39,7 @@ $base_a101 = $_scheme . '://' . $_host . '/a101havale/sadece-online-ozel/urun.ph
             <div class="table-responsive">
               <table class="table table-row-dashed"><thead><tr><th></th><th>Ürün</th><th>Link</th><th></th></tr></thead><tbody>
                 <?php
-                $mq = $db->prepare("SELECT * FROM bella_mg_urunler WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+                $mq = $db->prepare("SELECT * FROM bella_mg_urunler WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
                 $mq->execute();
                 if ($mq->rowCount()) {
                     while ($r = $mq->fetch(PDO::FETCH_ASSOC)) {
@@ -103,7 +103,7 @@ $base_a101 = $_scheme . '://' . $_host . '/a101havale/sadece-online-ozel/urun.ph
           <div class="tab-pane fade" id="tab_pj_liste">
             <table class="table"><thead><tr><th></th><th>Ürün</th><th></th></tr></thead><tbody>
               <?php
-              $pq = $db->prepare("SELECT * FROM bella_pj_urunler WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+              $pq = $db->prepare("SELECT * FROM bella_pj_urunler WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
               $pq->execute();
               if ($pq->rowCount()) {
                   while ($r = $pq->fetch(PDO::FETCH_ASSOC)) {
@@ -158,7 +158,7 @@ $base_a101 = $_scheme . '://' . $_host . '/a101havale/sadece-online-ozel/urun.ph
           <div class="tab-pane fade" id="tab_pt3_liste">
             <table class="table"><thead><tr><th></th><th>Ürün</th><th></th></tr></thead><tbody>
               <?php
-              $tq = $db->prepare("SELECT * FROM bella_ptt3_urunler WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+              $tq = $db->prepare("SELECT * FROM bella_ptt3_urunler WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
               $tq->execute();
               if ($tq->rowCount()) {
                   while ($r = $tq->fetch(PDO::FETCH_ASSOC)) {
@@ -213,7 +213,7 @@ $base_a101 = $_scheme . '://' . $_host . '/a101havale/sadece-online-ozel/urun.ph
           <div class="tab-pane fade" id="tab_bim_liste">
             <table class="table"><thead><tr><th></th><th>Ürün</th><th></th></tr></thead><tbody>
               <?php
-              $bq = $db->prepare("SELECT * FROM bella_bim_products WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+              $bq = $db->prepare("SELECT * FROM bella_bim_products WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
               $bq->execute();
               if ($bq->rowCount()) {
                   while ($r = $bq->fetch(PDO::FETCH_ASSOC)) {
@@ -270,7 +270,7 @@ $base_a101 = $_scheme . '://' . $_host . '/a101havale/sadece-online-ozel/urun.ph
           <div class="tab-pane fade" id="tab_a101_liste">
             <table class="table"><thead><tr><th></th><th>Ürün</th><th></th></tr></thead><tbody>
               <?php
-              $aq = $db->prepare("SELECT * FROM bella_a101_products WHERE 1=1 $bellla_owner_filter ORDER BY id DESC");
+              $aq = $db->prepare("SELECT * FROM bella_a101_products WHERE 1=1 $bellla_owner_filter ORDER BY id DESC LIMIT " . bellla_dashboard_list_limit());
               $aq->execute();
               if ($aq->rowCount()) {
                   while ($r = $aq->fetch(PDO::FETCH_ASSOC)) {
