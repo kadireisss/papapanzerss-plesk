@@ -1,0 +1,8 @@
+{
+  "name": "papapanzer/bellasc-plesk",
+  "description": "PANZER PHP monorepo — Plesk hosting",
+  "require": {
+    "php": ">=8.0",
+    "ext-pdo_mysql": "*"
+  }
+}

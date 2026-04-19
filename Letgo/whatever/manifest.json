@@ -1,0 +1,22 @@
+{
+    "gcm_user_visible_only": true,
+    "gcm_sender_id": "620536207652",
+    "start_url": "/?install=true",
+    "display": "standalone",
+    "name": "Letgo Lite",
+    "short_name": "Letgo Lite",
+    "icons": [
+        {
+            "src": "/logo/letgo-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo/letgo-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "background_color": "#3a77ff",
+    "theme_color": "#3a77ff"
+}

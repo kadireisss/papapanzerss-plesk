@@ -1,0 +1,216 @@
+[29-Apr-2023 01:05:27 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/a1o1indirimler.com/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/a1o1indirimler.com/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/a1o1indirimler.com/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/a1o1indirimler.com/inc/db.php on line 6
+[29-Apr-2023 09:27:43 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/a1o1indirimler.com/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/a1o1indirimler.com/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/a1o1indirimler.com/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/a1o1indirimler.com/inc/db.php on line 6
+[24-May-2023 15:23:52 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 15:23:52 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 15:25:05 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 15:43:53 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:02 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:06 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:07 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:11 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:14 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:20 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[24-May-2023 16:19:22 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php:6
+Stack trace:
+#0 /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php(6): PDO->__construct()
+#1 /home/sezquirf/online-ozel-a1o1.xyz/91fc33468bb255d46ec36878988c79d62cd6da539527d7c3c674b1c3a11b1c0de902cc1626809d25808bb2a3e7319c148515174f5367c9aa3b3a24d4b778487b/inc/ajax.php(122): db_connect()
+#2 {main}
+  thrown in /home/sezquirf/online-ozel-a1o1.xyz/inc/db.php on line 6
+[15-Jan-2024 00:33:26 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'admin_bugun34'@'localhost' (using password: YES) in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 00:33:27 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'admin_bugun34'@'localhost' (using password: YES) in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 00:33:28 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'admin_bugun34'@'localhost' (using password: YES) in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 00:33:28 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'admin_bugun34'@'localhost' (using password: YES) in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 00:33:28 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'admin_bugun34'@'localhost' (using password: YES) in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:41 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:53 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:54 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:54 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:54 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:54 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:55 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:55 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:56 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:33:56 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:34:23 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:34:23 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:35:57 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:35:58 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:35:59 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:35:59 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:35:59 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6
+[15-Jan-2024 01:36:00 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tosuncuk_101'@'localhost' to database 'a101' in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php:6
+Stack trace:
+#0 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php(6): PDO->__construct()
+#1 /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/admin/inc/ajax.php(92): db_connect()
+#2 {main}
+  thrown in /home/hawnhfbf6utl/public_html/kampanya-kapinda.com/inc/db.php on line 6

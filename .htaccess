@@ -1,0 +1,44 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Censys/Shodan bot engelle
+    RewriteCond %{HTTP_USER_AGENT} CensysInspect [NC]
+    RewriteRule ^ - [F]
+
+    # Document root: projenin koku
+    # Plesk'te "Document Root" olarak bu klasoru gosterin.
+
+    # /signup -> /signup.php  /signin -> /signin.php seklinde temiz URL
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php [NC,L]
+
+    ErrorDocument 404 /BellaMain/404.php
+</IfModule>
+
+# PHP ayarlari (Plesk genelde destekler)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 20M
+    php_value post_max_size 25M
+    php_value max_execution_time 120
+    php_value session.cookie_httponly 1
+    php_value session.cookie_samesite Lax
+</IfModule>
+
+# Guvenlik headerlari
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# config.local.php erisimi engelle
+<Files "config.local.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</Files>

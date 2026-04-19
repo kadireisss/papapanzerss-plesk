@@ -1,0 +1,513 @@
+﻿@font-face {
+    font-family: "Omnes";
+    src: url('Omnes Regular.otf');
+}
+
+body {
+    font-family: Omnes !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 380px) {
+    .anasayfabackground {
+        background: url(https://gonderitakip.ptt.gov.tr/Content/images/bgmobil.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;*/
+    }
+
+    .logoalani {
+        /*text-align: center;*/
+        padding-top: 5px;
+    }
+
+    .boscizgi {
+        padding-top: 5px;
+    }
+
+    .footer {
+        /*position: absolute;*/
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 45px;
+        line-height: 45px; /* Vertically center the text there */
+        padding-bottom: 10px;
+    }
+
+        .footer > .container {
+            padding-right: 5px;
+            padding-left: 5px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+}
+
+@media (min-width: 381px) {
+    .anasayfabackground {
+        background: url(images/bgmobil.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;*/
+    }
+
+    .logoalani {
+        /*text-align: center;*/
+        padding-top: 20px;
+    }
+
+    .boscizgi {
+        padding-top: 30px;
+    }
+
+    .footer {
+        /*position: absolute;*/
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 45px;
+        line-height: 45px; /* Vertically center the text there */
+        padding-bottom: 10px;
+    }
+
+        .footer > .container {
+            padding-right: 5px;
+            padding-left: 5px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+}
+
+@media (min-width: 550px) {
+
+
+    .logoalani {
+        /*text-align: center;*/
+        padding-top: 80px;
+    }
+
+    .boscizgi {
+        padding-top: 50px;
+    }
+
+    .footer {
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        padding-bottom: 80px;
+    }
+
+        .footer > .container {
+            font-size: 1em;
+        }
+}
+
+@media (min-width: 1000px) {
+    .anasayfabackground {
+        background: url(https://gonderitakip.ptt.gov.tr/Content/images/bg1.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;*/
+    }
+
+    .boscizgi {
+        padding-top: 0px;
+    }
+
+    .logoalani {
+        padding-top: 10px;
+    }
+
+    .footer > .container {
+        text-align: right;
+    }
+}
+
+@media (min-width: 1500px) {
+    .logoalani {
+        padding-top: 100px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .logoalani {
+        padding-top: 280px;
+    }
+}
+
+@media (min-width: 2600px) {
+    .logoalani {
+        padding-top: 550px;
+    }
+}
+
+
+.otherlayout {
+    background: url(images/layoutbg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;*/
+}
+
+#header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.footerrenkmavi {
+    background-color: #00a6cf;
+}
+
+.footerrenksari {
+    background-color: #ffce38;
+}
+
+.pttlogo {
+    background-color: #00a6cf;
+    padding: 20px;
+}
+
+body > .container {
+    padding: 60px 15px 0;
+}
+
+code {
+    /*font-size: 80%;*/
+}
+
+.main {
+    position: relative;
+    /*background: url(images/bg1.png);*/
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0 220px;
+}
+    /*ANKET KALDIRILDIĞINDA AÇILACAK*/
+    .main h2 {
+        font-size: 1.3em;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+/*ANKET EKLENDİĞİNDE*/
+/*.main h2 {
+        font-size: 1.3em;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }*/
+
+.maviarkaplan {
+    background-color: #00a6cf;
+    /*ANKET KALDIRILDIĞINDA AÇILACAK*/
+    padding: 10px;
+    /*ANKET EKLENDİĞİNDE*/
+    /*padding: 5px;*/
+    border-radius: 10px;
+}
+
+.btn-outline-secondary:hover {
+    color: black !important;
+}
+
+.beyaztext {
+    color: white;
+    font-size: 0.8em;
+    padding-left: 10px;
+}
+
+.parabirimitext {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #066ac9;
+    --bs-white: #fff;
+    --bs-secondary: #9a9ea4;
+    --bs-success: #0cbc87;
+    --bs-info: #17a2b8;
+    --bs-warning: #f7c32e;
+    --bs-danger: #d6293e;
+    --bs-light: #f5f7f9;
+    --bs-dark: #24292d;
+    --bs-orange: #fd7e14;
+    --bs-purple: #6f42c1;
+    --bs-blue: #1d3b53;
+    --bs-primary-rgb: 6, 106, 201;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-secondary-rgb: 154, 158, 164;
+    --bs-success-rgb: 12, 188, 135;
+    --bs-info-rgb: 23, 162, 184;
+    --bs-warning-rgb: 247, 195, 46;
+    --bs-danger-rgb: 214, 41, 62;
+    --bs-light-rgb: 245, 247, 249;
+    --bs-dark-rgb: 36, 41, 45;
+    --bs-orange-rgb: 253, 126, 20;
+    --bs-purple-rgb: 111, 66, 193;
+    --bs-blue-rgb: 29, 59, 83;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-body-color-rgb: 116, 117, 121;
+    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: Roboto, sans-serif;
+    --bs-body-font-size: 0.9375rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #747579;
+    --bs-body-bg: #fff;
+}
+
+.text-primary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-white {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-secondary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-success {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-info {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-info-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-warning {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-warning-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-danger {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-light {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-dark {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-orange {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-orange-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-purple {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-purple-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-blue {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-blue-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-black {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-body {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #cfd3d7 !important;
+}
+
+.text-black-50 {
+    --bs-text-opacity: 1;
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.text-white-50 {
+    --bs-text-opacity: 1;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.text-reset {
+    --bs-text-opacity: 1;
+    color: inherit !important;
+}
+
+.text-opacity-25 {
+    --bs-text-opacity: 0.25;
+}
+
+.text-opacity-50 {
+    --bs-text-opacity: 0.5;
+}
+
+.text-opacity-75 {
+    --bs-text-opacity: 0.75;
+}
+
+.text-opacity-100 {
+    --bs-text-opacity: 1;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-white {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-info {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-info-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-warning2 {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-danger {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-orange {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-orange-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-purple {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-purple-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-blue {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-blue-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-black {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-body {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-transparent {
+    --bs-bg-opacity: 1;
+    background-color: transparent !important;
+}
+
+.bg-opacity-10 {
+    --bs-bg-opacity: 0.1;
+}
+
+.bg-opacity-25 {
+    --bs-bg-opacity: 0.25;
+}
+
+.bg-opacity-50 {
+    --bs-bg-opacity: 0.5;
+}
+
+.bg-opacity-75 {
+    --bs-bg-opacity: 0.75;
+}
+
+.bg-opacity-100 {
+    --bs-bg-opacity: 1;
+}

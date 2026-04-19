@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" viewBox="0 0 24 30">
+    <path fill="#51cbb0" opacity=".2" d="M0 10h4v10H0z">
+        <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="1s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="1s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path fill="#51cbb0" opacity=".2" d="M8 10h4v10H8z">
+        <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.16s" dur="1s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.16s" dur="1s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.16s" dur="1s"
+                 repeatCount="indefinite"/>
+    </path>
+    <path fill="#51cbb0" opacity=".2" d="M16 10h4v10h-4z">
+        <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.32s" dur="1s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.32s" dur="1s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.32s" dur="1s"
+                 repeatCount="indefinite"/>
+    </path>
+</svg>

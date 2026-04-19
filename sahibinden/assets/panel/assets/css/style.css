@@ -1,0 +1,117 @@
+body {
+  background: #232323;
+  font-family: "Source Sans Pro"; }
+
+.inbody {
+  background: whitesmoke !important; }
+.form-head {
+  margin-left:15px;
+}
+.form-btn {
+  background: #38b78d;
+  display:block;
+  margin-top:10px;
+  border:none;
+}
+#login {
+  background: #333333;
+  width: 500px;
+  position: absolute;
+  top: calc(30%);
+  left: calc(50% - 250px);
+  padding: 20px;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  #login .logo {
+    margin-top: -10px;
+    margin-bottom: 20px; }
+    #login .logo span {
+      cursor: default;
+      color: #c3c2c1;
+      font-size: 50px; }
+  #login input {
+    border: none;
+    border-radius: 0;
+    background: #2d2d2d;
+    box-shadow: none;
+    border-bottom: 1px solid #31b78d;
+    padding: 20px;
+    padding-left: 30px; }
+  #login button {
+    background: #31b78d;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    color: #e2e2e1; }
+  #login .form-group {
+    position: relative; }
+    #login .form-group i {
+      position: absolute;
+      top: 11px;
+      left: 10px;
+      font-size: 19px;
+      color: #464646; }
+  #login .login-alert {
+    width: 100%;
+    background: #2d2d2d;
+    margin-bottom: 20px;
+    padding: 15px;
+    color: #31b78d;
+    cursor: default; }
+    #login .login-alert i {
+      color: #464646;
+      margin-right: 5px; }
+
+#left {
+  width: 250px;
+  float: left;
+  background: #232323;
+  height: 100vh;
+  position: fixed;
+}
+  #left ul {
+    margin: 0;
+    padding: 0; }
+    #left ul .dropdown ul a {
+      background: #1b1b1b !important; }
+    #left ul .dropdown ul {
+      display: none; }
+    #left ul .logo a {
+      width: 100%;
+      text-align: center;
+      padding-left: 0;
+      background: #1b1b1b;
+      border-bottom: 3px solid #38b78d;
+      padding-right: 10px; }
+    #left ul .dropdown i:last-child {
+      margin-left: 10px; }
+    #left ul li {
+      list-style: none;
+      width: 100%; }
+      #left ul li i {
+        padding-right: 10px; }
+      #left ul li a {
+        color: #c3c2c1;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px; }
+        #left ul li a:hover {
+          background: #1b1b1b !important; }
+    #left ul .active {
+      background: #1b1b1b; }
+
+#content {
+  padding: 20px;
+  width: calc(100% - 250px);
+  background: whitesmoke;
+  float: right;
+  min-height: 500px; }
+
+.btn-link {
+  color:#1b1b1b !important;
+  text-decoration: underline;
+}

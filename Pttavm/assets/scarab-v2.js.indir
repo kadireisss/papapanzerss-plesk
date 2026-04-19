@@ -1,0 +1,1 @@
+/* Partner not recognised by the system */

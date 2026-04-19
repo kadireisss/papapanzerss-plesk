@@ -1,0 +1,47 @@
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(../uploads/2023-12-16 18.54.25.jpg): Failed to open stream: No such file or directory in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpN5tKJ4&quot; to &quot;../uploads/2023-12-16 18.54.25.jpg&quot; in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(../uploads/denizbank.png): Failed to open stream: No such file or directory in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/php1kvscU&quot; to &quot;../uploads/denizbank.png&quot; in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(../uploads/sekerbank.png): Failed to open stream: No such file or directory in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpmMeMkQ&quot; to &quot;../uploads/sekerbank.png&quot; in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(../uploads/teb.png): Failed to open stream: No such file or directory in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/php99sN3M&quot; to &quot;../uploads/teb.png&quot; in /home/goodeme/public_html/etic/admin/urunekle.php on line 21
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim1 in /home/goodeme/public_html/etic/admin/urunekle.php on line 45
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim2 in /home/goodeme/public_html/etic/admin/urunekle.php on line 46
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 47
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim4 in /home/goodeme/public_html/etic/admin/urunekle.php on line 48
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim1 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim2 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $resim4 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Warning:  Undefined variable $iban in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:36 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'resim1' cannot be null in /home/goodeme/public_html/etic/admin/urunekle.php:55
+Stack trace:
+#0 /home/goodeme/public_html/etic/admin/urunekle.php(55): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:58 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 47
+[21-Dec-2023 21:26:58 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:58 Europe/Istanbul] PHP Warning:  Undefined variable $iban in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:26:58 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'resim3' cannot be null in /home/goodeme/public_html/etic/admin/urunekle.php:55
+Stack trace:
+#0 /home/goodeme/public_html/etic/admin/urunekle.php(55): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:28:43 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 47
+[21-Dec-2023 21:28:43 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:28:43 Europe/Istanbul] PHP Warning:  Undefined variable $iban in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:28:43 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'resim3' cannot be null in /home/goodeme/public_html/etic/admin/urunekle.php:55
+Stack trace:
+#0 /home/goodeme/public_html/etic/admin/urunekle.php(55): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:29:53 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 47
+[21-Dec-2023 21:29:53 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 55
+[21-Dec-2023 21:31:41 Europe/Istanbul] PHP Warning:  Undefined variable $resim3 in /home/goodeme/public_html/etic/admin/urunekle.php on line 50
+[21-Dec-2023 21:33:02 Europe/Istanbul] PHP Warning:  Undefined array key "image5" in /home/goodeme/public_html/etic/admin/urunekle.php on line 16
+[21-Dec-2023 21:33:02 Europe/Istanbul] PHP Warning:  Trying to access array offset on value of type null in /home/goodeme/public_html/etic/admin/urunekle.php on line 16
+[21-Dec-2023 21:33:02 Europe/Istanbul] PHP Warning:  Undefined array key "image5" in /home/goodeme/public_html/etic/admin/urunekle.php on line 17
+[21-Dec-2023 21:33:02 Europe/Istanbul] PHP Warning:  Trying to access array offset on value of type null in /home/goodeme/public_html/etic/admin/urunekle.php on line 17
+[21-Dec-2023 21:33:02 Europe/Istanbul] PHP Warning:  Undefined array key "image5" in /home/goodeme/public_html/etic/admin/urunekle.php on line 18
+[21-Dec-2023 21:33:02 Europe/Istanbul] PHP Warning:  Trying to access array offset on value of type null in /home/goodeme/public_html/etic/admin/urunekle.php on line 18

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <filter id="Ellipse_369" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2c2828" flood-opacity="0.259"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect width="8" height="14" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_11280" data-name="Group 11280" transform="translate(604 -1140) rotate(90)">
+    <g id="Group_140" data-name="Group 140" transform="translate(1146 559)">
+      <g transform="matrix(0, -1, 1, 0, -6, 45)" filter="url(#Ellipse_369)">
+        <g id="Ellipse_369-2" data-name="Ellipse 369" transform="translate(45 6) rotate(90)" fill="#fff" stroke="rgba(136,152,170,0.5)" stroke-width="1">
+          <circle cx="18" cy="18" r="18" stroke="none"/>
+          <circle cx="18" cy="18" r="17.5" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_11281" data-name="Group 11281" transform="translate(1157.5 569.476)">
+      <g id="chevron-right" clip-path="url(#clip-path)">
+        <path id="chevron-right-2" data-name="chevron-right" d="M9,18l6-6L9,6" transform="translate(-8 -5)" fill="none" stroke="#8898aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="chevron-right-3" data-name="chevron-right" transform="translate(6)" clip-path="url(#clip-path)">
+        <path id="chevron-right-4" data-name="chevron-right" d="M9,18l6-6L9,6" transform="translate(-8 -5)" fill="none" stroke="#8898aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

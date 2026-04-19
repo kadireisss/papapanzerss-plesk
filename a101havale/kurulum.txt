@@ -1,0 +1,13 @@
+Zipin içindekileri çıkartın. 
+
+
+/inc/db.php
+/inc/db_2.php
+/inc/db_3.php
+/inc/db_4.php
+
+Bu dosyalardaki db ayarını yapın. 
+
+Hash türü Sha256
+
+--Arbaers

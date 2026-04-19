@@ -1,0 +1,45 @@
+#legal_text {
+	height: 360px;
+	overflow: auto;
+}
+.speech {
+	background:#86D2E2;
+}
+.speech:before {
+	border-right: 7px solid #86D2E2;
+}
+.speech {
+	color:#000000;
+}
+.speech .media-heading {
+	color:#000000;
+}
+.btnCustom {
+	color:#000000;
+	border-color:#000000;
+}
+.btnCustom:hover {
+	color:#000000;
+	border-color:#000000;
+	background:transparent;
+	opacity:0.8;
+}
+.speech-right > .speech {
+	background:#FEC52E;
+}
+.speech-right > .speech:before {
+	border-left: 7px solid #FEC52E;
+}
+.speech-right .speech {
+	color:#000000;
+}
+.speech-right > .speech .media-heading {
+	color:#000000;
+}
+#btnSendMessage {
+	background-color:#2A97D5;
+}
+#alo-chat-logout {
+	background-color:#8E3F37;
+}
+// Cached

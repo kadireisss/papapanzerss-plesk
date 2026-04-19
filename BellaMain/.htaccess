@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	
+    RewriteCond %{HTTP_USER_AGENT} CensysInspect [NC,OR]
+    RewriteCond %{REMOTE_ADDR} ^162\.142\.125\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^167\.94\.138\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^167\.94\.145\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^167\.94\.146\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^167\.248\.133\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^199\.45\.154\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^199\.45\.155\. [OR]
+    RewriteCond %{REMOTE_ADDR} ^2602:80d:1000:b0cc:e:: [OR]
+    RewriteCond %{REMOTE_ADDR} ^2620:96:e000:b0cc:e::
+    RewriteRule ^ - [F]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php [NC,L]
+
+    ErrorDocument 404 /404
+</IfModule>

@@ -1,0 +1,102 @@
+var Wawlabs = (function () {
+  function Wawlabs(companyID) {
+    this.hasTriggered = false;
+    this.companyID = companyID;
+  }
+  Wawlabs.prototype.init = function () {
+    this.ga = this.getCookie("_ga");
+  };
+  Wawlabs.prototype.w_trigger_analytics = function () {
+    if (this.hasTriggered) {
+      return;
+    }
+    this.hasTriggered = true;
+    try {
+      let queryString = window.location.search;
+      let urlParams = new URLSearchParams(queryString);
+      let search = "";
+      let temp = urlParams.get('q');
+      if (temp != null) {
+        search = temp;
+      }
+      let data = {};
+      let url = window.location.href;
+      let pathname = window.location.pathname
+      if (window.location.href.indexOf("-p-") > -1) {
+        let urlParts = window.location.pathname.split("-");
+        let productId = urlParts.pop();
+        let title = document.querySelectorAll("h1.text-lg.font-medium")[0].innerHTML
+        let wkeyword = urlParams.get("waw_keyword")
+        if (wkeyword != null) {
+          data["title"] = title
+          data["url"] = url;
+          data["waw_keyword"] = wkeyword
+          data["ga"] = this.ga;
+          data["product_id"] = productId;
+          data["uid"] = this.companyID;
+        }
+
+      }
+
+      if (pathname == "/arama") {
+        data["enter_search"] = search !== null && search !== void 0 ? search : "";
+        data["url"] = url;
+        data["ga"] = this.ga;
+        data["uid"] = this.companyID;
+      }
+
+      if (Object.keys(data).length > 0) {
+        let httpConfig = {
+          method: 'POST',
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }
+        fetch("https://wa.wawlabs.com", httpConfig).then(res => {
+          return false
+        }).catch(err => console.error(err))
+      }
+
+    }
+    catch (err) {
+    }
+  };
+  Wawlabs.prototype.getCookie = function (cname) {
+    var name = cname + "=";
+    var decodedCookie = document.cookie;
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  };
+  return Wawlabs;
+}());
+if (typeof window.wawlabs === "undefined") {
+  try {
+    if (window.wawlabs !== null) {
+      var wawlabs = new Wawlabs("KNZWB-2763825851");
+      wawlabs.init();
+      wawlabs.w_trigger_analytics();
+      console.log("Wawlabs!");
+    }
+
+  }
+  catch (err) {
+    window.wawlabs = null;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://app.wawlabs.com/logger?KNZWB-EPTT");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = function () {
+    };
+    xhr.send(err);
+  }
+}

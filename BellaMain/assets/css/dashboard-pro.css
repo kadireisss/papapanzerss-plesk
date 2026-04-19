@@ -1,0 +1,133 @@
+/**
+ * BellaMain dashboard — profesyonel kabuk (Metronic üzerine ince katman)
+ */
+
+:root {
+  --bellla-bg0: #0c0e12;
+  --bellla-bg1: #12151c;
+  --bellla-line: rgba(255, 255, 255, 0.06);
+  --bellla-accent: #c41e3a;
+  --bellla-accent-dim: rgba(196, 30, 58, 0.35);
+  --bellla-glow: rgba(255, 255, 255, 0.04);
+}
+
+body#kt_app_body.bellla-dash-pro {
+  background: radial-gradient(1200px 600px at 10% -10%, var(--bellla-accent-dim), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(80, 120, 255, 0.12), transparent 50%),
+    linear-gradient(165deg, var(--bellla-bg0) 0%, var(--bellla-bg1) 45%, #0a0b0f 100%) !important;
+}
+
+body#kt_app_body.bellla-dash-pro #kt_app_sidebar {
+  border-right: 1px solid var(--bellla-line);
+  background: linear-gradient(180deg, rgba(18, 21, 28, 0.98) 0%, rgba(10, 11, 15, 0.96) 100%) !important;
+  backdrop-filter: blur(12px);
+}
+
+body#kt_app_body.bellla-dash-pro #kt_app_toolbar {
+  border-bottom: 1px solid var(--bellla-line);
+  background: rgba(12, 14, 18, 0.75) !important;
+  backdrop-filter: blur(10px);
+}
+
+body#kt_app_body.bellla-dash-pro #kt_app_content {
+  background: transparent !important;
+}
+
+.bellla-dash-pro .bellla-page-hero h1 {
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff 0%, #d0d4de 55%, #a8b0c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bellla-dash-pro .bellla-page-hero .bellla-page-hero__sub {
+  font-size: 0.9rem;
+  color: #9aa3b2;
+  letter-spacing: 0.04em;
+}
+
+.bellla-dash-pro .bellla-pro-card {
+  border: 1px solid var(--bellla-line) !important;
+  border-radius: 1rem !important;
+  background: linear-gradient(145deg, rgba(22, 26, 34, 0.92) 0%, rgba(14, 16, 22, 0.88) 100%) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35), inset 0 1px 0 var(--bellla-glow);
+}
+
+.bellla-dash-pro .bellla-pro-card .card-header {
+  border-bottom: 1px solid var(--bellla-line) !important;
+}
+
+.bellla-dash-pro .bellla-rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bellla-dash-pro .bellla-rank-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--bellla-line);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.bellla-dash-pro .bellla-rank-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(196, 30, 58, 0.25);
+}
+
+.bellla-dash-pro .bellla-rank-row .bellla-rank-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.bellla-dash-pro .bellla-avatar {
+  display: block;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.bellla-dash-pro .symbol-label {
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: 0.75rem !important;
+}
+
+.bellla-dash-pro #kt_app_sidebar .symbol img,
+.bellla-dash-pro #kt_app_sidebar .symbol-label img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* Pazar kısayol ızgarası — hizalı, nefes alan */
+.bellla-dash-pro #kt_app_sidebar_nav .row {
+  row-gap: 0.5rem;
+}
+
+.bellla-dash-pro #kt_app_sidebar_nav .btn-icon {
+  border-radius: 0.85rem !important;
+}
+
+/* Kar efektini panelde biraz geri çek */
+body#kt_app_body.bellla-dash-pro .jquery-flurry,
+body#kt_app_body.bellla-dash-pro canvas {
+  opacity: 0.35 !important;
+  pointer-events: none;
+}
+
+@media (max-width: 991px) {
+  body#kt_app_body.bellla-dash-pro .margintelmode {
+    margin-top: 0 !important;
+  }
+}

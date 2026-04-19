@@ -1,0 +1,9 @@
+Zipin içindeki dosyaları çıkartın. 
+
+İnc - db.php den db ayarlarını yapın. 
+
+Admin panel yolu - admin
+
+Şifreleme türü Sha256
+
+---Arbaers
